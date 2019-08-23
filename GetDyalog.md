@@ -28,6 +28,6 @@ CONTAINER ID        IMAGE                  COMMAND             CREATED          
 Open new (power)shell and change direcotry to folder where the files should be copied. After copy the files from container whic is in this case 3e2ad05ef758 .
 
 ```powershell
-docker cp 8440a4a9f327:/opt/mdyalog ./opt/
+docker cp 8440a4a9f327:/opt/mdyalog ./dyalog/opt/
 ```
-And APL interpreter is */opt/mdyalog* folder
+And APL interpreter is */dyalog/opt/mdyalog* folder

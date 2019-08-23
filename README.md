@@ -7,6 +7,9 @@
 ```
 
 # Create Dyalog APL AWS lambda layer
+In progress...
 
-
+# See
+https://github.com/mthenw/awesome-layers
+https://docs.aws.amazon.com/lambda/latest/dg/runtimes-api.html
 
