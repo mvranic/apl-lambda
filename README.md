@@ -6,6 +6,9 @@
    Please, check the Dyalog APL interpreter licence with Dyalog ltd at wwww.dyalog.com 
 ```
 
+In example the Dyalog binaries are at: ```./dyalog/opt/mdyalog```
+The files can be extracted as describe at [How to get Dyalog Linux binaries from Dyalog image](./GetDyalog.md)
+
 # Create Dyalog APL AWS lambda layer
 In progress...
 
