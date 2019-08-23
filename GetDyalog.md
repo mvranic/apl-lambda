@@ -1,4 +1,4 @@
-#How to get Dyalog Linux binaries from Dyalog image
+# How to get Dyalog Linux binaries from Dyalog image
 
 Dyalog binires can be extarceted  from Dyalog APL Linux image.
 
