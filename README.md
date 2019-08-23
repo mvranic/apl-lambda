@@ -3,7 +3,7 @@
 **Note: Dyalog APL interpreter licence **
 ```
    Dyalog interpreter used in this project part of Dyalog docker image on Linux. 
-   Please, check the Dyalog APL interpreter licence with Dyalog ltd at wwww.dyalog.com 
+   Please, check the Dyalog APL interpreter licence with Dyalog ltd at http://wwww.dyalog.com 
 ```
 
 In example the Dyalog binaries are at: ```./dyalog/opt/mdyalog```
