@@ -14,7 +14,8 @@ setConstants;apphome;fnname;folder;lx;nr;port;server;timeout;wrrapername
  _log'Folder with apl code:'folder
 
 
- RUNTIME_PATH←'/2018-06-01/runtime'
+ #.RUNTIME_PATH←'/2018-06-01/runtime'
+ #.enCUSTOM←996
 
  #.AWS_LAMBDA_FUNCTION_NAME←_getenv'AWS_LAMBDA_FUNCTION_NAME'
  _log'AWS_LAMBDA_FUNCTION_NAME:'#.AWS_LAMBDA_FUNCTION_VERSION
