@@ -1,4 +1,4 @@
-programStart;_empty;_getenv;_log;apphome;fnname;folder;lx;nr;port;server;timeout;wrrapername
+setConstants;apphome;fnname;folder;lx;nr;port;server;timeout;wrrapername
  _empty←{0∊⍴⍵}
  _getenv←{2 ⎕NQ'.' 'GetEnvironment'⍵}
  _log←{⎕←⍵}
@@ -41,7 +41,5 @@ programStart;_empty;_getenv;_log;apphome;fnname;folder;lx;nr;port;server;timeout
  _log'AWS_LAMBDA_RUNTIME_API:'#.AWS_LAMBDA_RUNTIME_API
 
  #.HOST #.PORT←':'_split #.AWS_LAMBDA_RUNTIME_API
-
- start
 
  _log'End init. of APL lambda.'
