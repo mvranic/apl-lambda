@@ -4,6 +4,7 @@
 ⍝sink←⎕FX⊃⎕NGET (apphome,'/init/StartJsonServer.apl')1
 ⍝startJsonServer
 
-programStart
+setConstants
+start
 
 ⎕←'Closing AWS lambda runtime.'
