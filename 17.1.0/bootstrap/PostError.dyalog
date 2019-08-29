@@ -8,6 +8,6 @@
  body←⎕JSON lambdaerr
  req←awaitMe promiseMe'request'(path options headers body)
  :If req.StstusCode≠202
-    msg←⊃,/'Unexpected '#.PATH,' response: '(⎕JSON req.res)
+    msg←⊃,/'Unexpected '#.PATH,' response: '(⎕JSON req.res) ⍝ Todo: Does req.res exist?
     msg ⎕SIGNAL #.enCUSTOM   ⍝ This might not work as a "promise"
  :EndIf   
