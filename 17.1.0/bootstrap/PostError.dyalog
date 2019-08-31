@@ -2,12 +2,14 @@
  req←postError arg;err;path;options;headers;body;msg;lambdaerr
  path err←arg
  lambdaerr←toLambdaErr err
- options←⎕NS''
- options.method←'POST'
- headers←'''Content-Type'': ''application/json'',''Lambda-Runtime-Function-Error-Type'': ',lambdaerr.errorType,''''
+ method←'POST'
+ headers←0 2⍴''
+ headers⍪←'Content-Type' 'application/json'
+ headers⍪←'Lambda-Runtime-Function-Error-Type' (⍕lambdaerr.errorType)
  body←⎕JSON lambdaerr
- req←awaitMe promiseMe'request'(path options headers body)
+ req←awaitMe asyncTask'request'(path method headers body)
  :If req.StstusCode≠202
-    msg←⊃,/'Unexpected '#.PATH,' response: '(⎕JSON req.res) ⍝ Todo: Does req.res exist?
+    msg←'Unexpected ',path,' response HttpStatus: ',(⍕req.HttpStatus),' ,HttpMessage: ',req.HttpMessage
+    logHttpRequestErr path req
     msg ⎕SIGNAL #.enCUSTOM   ⍝ This might not work as a "promise"
  :EndIf   
