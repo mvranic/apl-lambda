@@ -7,7 +7,7 @@ processEvents handler;context;event;next;result;err;descrition;en;stack;sink
        result←awaitTask'callHandler'(event context)
        err←result.Err
        :if 0=⊃⍴result.Err 
-           invokeResponse result
+           sink←awaitTask'invokeResponse'(result context)
        :else 
            err.InvocationErr←'Execution'
            sink←awaitTask asyncTask'invokeError'(err context)

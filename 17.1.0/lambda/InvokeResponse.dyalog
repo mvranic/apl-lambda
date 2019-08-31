@@ -1,4 +1,4 @@
- invokeResponse arg;context;result;method;url;body;headers;req;msg
+ res←invokeResponse arg;context;result;method;url;body;headers;req;msg
  result context←arg
  method←'POST'
  url←#.RUNTIME_PATH,'/invocation/',awsRequestId,'/response'
@@ -15,3 +15,5 @@
      logHttpRequestErr url req
      msg ⎕SIGNAL #.enCUSTOM
  :EndIf
+  
+res←0
