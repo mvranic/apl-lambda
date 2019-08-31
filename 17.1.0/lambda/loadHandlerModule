@@ -1,0 +1,2 @@
+    fns loadHandlerModule path
+    Result fns as String : List of fixed APL functions. 

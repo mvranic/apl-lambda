@@ -18,4 +18,4 @@ handlertask←getHandler;const;appparts;handlername;modulepath;userhandler;fns
     ('Handler ',handlername,' missing on module ',modulepath)⎕SIGNAL enCUSTOM
  :EndIf
 
- handlertask←promiseMe'getHandler_Do'(resolve reject)
+ handlertask←asyncTask'getHandler_Do'(resolve reject)
