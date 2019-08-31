@@ -1,7 +1,14 @@
-tryProcessEvents handler
-:Trap 0
-    processEvents handler
-:Else
-    _log ⎕DMX
-    ⎕OFF 1
-:EndTrap
+ tryProcessEvents handler;en;descrition;stack;err
+ :Trap 0
+     processEvents handler
+ :Else
+     ⎕←'Error on process events.'
+     :Trap 0
+         en←⎕DMX.EN
+         descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
+         stack←1 0↓↑⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
+         err←toLambdaErr en descrition stack
+         _log JSON err
+     :EndTrap
+     ⎕OFF 1
+ :EndTrap
