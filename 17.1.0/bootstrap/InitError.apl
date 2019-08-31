@@ -1,2 +1,0 @@
-initError err
-postError err
