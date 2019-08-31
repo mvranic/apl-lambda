@@ -4,13 +4,13 @@
     event←next.Value.event
     context←next.Value.context
     :Trap 0
-       result←awaitMe'callHandler'(event context)
+       result←awaitTask'callHandler'(event context)
     :Else
        en←⎕DMX.EN
        descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
        stack←1 0↓↑⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
        err←en descrition stack
-       sink←awaitMe promiseMe'invokeError'(err context)
+       sink←awaitTask asyncTask'invokeError'(err context)
        :Continue
     :EndTrap
  :EndWhile
