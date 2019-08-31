@@ -11,5 +11,5 @@
  :If req.StstusCode≠202
     msg←'Unexpected ',path,' response HttpStatus: ',(⍕req.HttpStatus),' ,HttpMessage: ',req.HttpMessage
     logHttpRequestErr path req
-    msg ⎕SIGNAL #.enCUSTOM   ⍝ This might not work as a "promise"
+    msg ⎕SIGNAL #.enCUSTOM  
  :EndIf   
