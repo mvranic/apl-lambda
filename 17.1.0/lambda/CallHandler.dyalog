@@ -4,6 +4,7 @@ lambdaresult←callHandler_Do arg;const;handler;appparts;handlername;modulepath;
  lambdaresult←⎕NS''
  lambdaresult.Result←⍬
  lambdaresult.Err←⍬
+
  :Trap 0
      result←⍎handler,'(event context)'
      lambdaresult.Result←result
@@ -12,8 +13,8 @@ lambdaresult←callHandler_Do arg;const;handler;appparts;handlername;modulepath;
          en←⎕DMX.EN
          descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
          stack←1 0↓↑⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
-
          err←toLambdaErr en descrition stack
+         err.Resolved←1
      :Else
          err←⎕NS''
          err.Resolved←0

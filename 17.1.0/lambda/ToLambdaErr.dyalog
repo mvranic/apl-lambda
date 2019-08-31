@@ -1,11 +1,11 @@
-res←toLambdaErr err;errorname;message;stack
+res←toLambdaErr err;errorname;message;stack;errns
 ⍝ Returns json string with the Lambda error.
  errorname message stack←err
- nsref←⎕NS''
- nsref.ErrorType←errorname
- nsref.ErrorMessage←message
- nsref.EtackTrace←2↓⊃,/(⊂'\n'),¨stack
- nsref.Resolved←1
- res←⎕JSON nsref
+ errns←⎕NS''
+ errns.ErrorType←errorname
+ errns.ErrorMessage←message
+ errns.EtackTrace←2↓⊃,/(⊂'\n'),¨stack
+ errns.Resolved←0
+ res←⎕JSON errns
 
 
