@@ -41,7 +41,7 @@ int main(void) {
   snprintf(max_old_space_size, ARG_BUF_SIZE, "--max-old-space-size=%d", mem_size * 90 / 100);
 
 
-execv(DYALOG, (char *[]){
+  execv(DYALOG, (char *[]){
                              "dyalog",
                              "+s",
  //                            "<$@",
