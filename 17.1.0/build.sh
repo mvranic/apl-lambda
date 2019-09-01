@@ -10,13 +10,14 @@ apt-get install dos2unix
 apt-get install --assume-yes git
 
 # HttpCommand is needed with conga only. JSON server as such is not used.
-git clone https://github.com/Dyalog/JSONServer.git output/opt/JSONServer
+git clone https://github.com/Dyalog/JSONServer.git output/JSONServer
 
 # Markos APL async Tasks:
-git clone https://github.com/mvranic/aplasync.git output/opt/aplasync 
+git clone https://github.com/mvranic/aplasync.git output/aplasync 
 
-cp -r aplcode output/opt/
-cp -r lambda output/opt/
+cp -r aplcode output/aplcode
+cp -r lambda output/lambda
+cp bootstrap.dyalog output/
 
 # Change mode for shell scripts:
 find output/opt/ -type f -iname "*.sh" -exec chmod +x {} \;
@@ -26,7 +27,7 @@ find output/opt/ -type f  \( -iname '*.sh' -o -iname '*.apl' -o -iname '*.dyalog
 
 #. cp -r ../output ./
 
-docker -H:2375 build --build-arg APL_VERSION -t apl-provided-lambda-v${APL_VERSION} --build-arg APL_VERSION=${APL_VERSION} .
+docker -H:2375 build -t apl-provided-lambda-v${APL_VERSION} --build-arg APL_VERSION=${APL_VERSION} .
 docker -H:2375 run --rm apl-provided-lambda-v${APL_VERSION} cat /tmp/apl-v${APL_VERSION}.zip > ./layer.zip
 
 # Buid end.

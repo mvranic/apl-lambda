@@ -2,7 +2,8 @@
 apphome←'/opt'
 
 ⎕CY  apphome,'/JSONServer/Distribution/JSONServer.dws'
-⍝⎕CY  apphome,'/boostrap/Distribution/aplboostrap.dws'
+⎕CY  apphome,'/aplasync/Distribution/aplasync.dws'
+⎕CY  apphome,'/boostrap/Distribution/aplboostrap.dws'
 
 setConstants
 start

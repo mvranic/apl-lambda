@@ -3,9 +3,9 @@ FROM lambci/lambda-base:build
 ARG APL_VERSION
 
 COPY bootstrap.c /opt/
-COPY bootstrap.dyalog /opt/
-COPY Distribution/ /opt/
-#COPY output/opt/ /opt/
+COPY Distribution/ /opt/boostrap/Distribution/
+COPY output/ /opt/
+
 
 #RUN curl -sSL https://nodejs.org/dist/v${APL_VERSION}/apl-v${APL_VERSION}-linux-x64.tar.xz | \
 #  tar -xJ -C /opt --strip-components 1 -- apl-v${APL_VERSION}-linux-x64/bin/node && \
