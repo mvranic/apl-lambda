@@ -1,15 +1,16 @@
-processEvents handler;context;event;next;result;err;descrition;en;stack;sink
+processEvents handler;context;event;next;result;err;descrition;en;stack;sink;errns
  :While 1
     next←awaitMe nextInvocation
     event←next.Value.event
     context←next.Value.context
     :Trap 0
        result←awaitTask'callHandler'(event context)
-       err←result.Err
+       errns←result.Err
        :if 0=⊃⍴result.Err 
            sink←awaitTask'invokeResponse'(result context)
        :else 
-           err.InvocationErr←'Execution'
+           errns.InvocationErr←'Execution'
+           err←⎕JSON errns
            sink←awaitTask asyncTask'invokeError'(err context)
            :Continue
        :endif

@@ -1,0 +1,2 @@
+logMsg msg
+⎕←msg

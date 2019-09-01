@@ -8,7 +8,7 @@
          descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
          stack←1 0↓↑⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
          err←toLambdaErr en descrition stack
-         _log JSON err
+         logErrNs err
      :EndTrap
      ⎕OFF 1
  :EndTrap

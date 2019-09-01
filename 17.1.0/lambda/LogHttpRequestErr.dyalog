@@ -9,4 +9,4 @@
  ns.TS←ts
  
  msg←⎕JSON ns
- _log msg
+ logErr msg
