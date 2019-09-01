@@ -1,4 +1,4 @@
-handlername←getHandler;const;appparts;handlername;modulepath;userhandler;fns
+handlername←getHandler;const;appparts;handlername;modulepath;handleravalible;fns
  appparts←'.'_split _HANDLER
 
  :If 2≢appparts
@@ -9,8 +9,8 @@ handlername←getHandler;const;appparts;handlername;modulepath;userhandler;fns
  modulepath handlername←appparts
 
  fns←loadHandlerModule LAMBDA_TASK_ROOT,'/',modulepath
- userhandler←(⊂handlername)∊fns
+ handleravalible←(⊂handlername)∊fns
 
- :If ~userhandler
+ :If ~handleravalible
     ('Handler ',handlername,' missing on module ',modulepath)⎕SIGNAL enCUSTOM
  :EndIf
