@@ -1,4 +1,3 @@
-
  req←postError arg;err;path;options;headers;body;msg;lambdaerr
  path err←arg
  lambdaerr←toLambdaErr err
