@@ -1,0 +1,4 @@
+Todo:
+1. Context should have name sapce where all is executed. 
+There should be name sapcename in name sapce. The nemsapce should be removed on end of invocation.
+2. It is not clear how to have multiple execution in same time. 
