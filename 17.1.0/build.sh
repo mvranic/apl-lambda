@@ -19,6 +19,8 @@ cp -r aplcode output/aplcode
 cp -r lambda output/lambda
 cp bootstrap.dyalog output/
 
+cp -r dyalog output/dyalog
+
 # Change mode for shell scripts:
 find output/opt/ -type f -iname "*.sh" -exec chmod +x {} \;
 
