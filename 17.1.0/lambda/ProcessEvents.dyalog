@@ -6,7 +6,7 @@ processEvents handler;context;event;next;result;err;descrition;en;stack;sink;err
     :Trap 0
        result←awaitTask'callHandler'(event context)
        errns←result.Err
-       :if 0=⊃⍴result.Err 
+       :if 9≠⎕NC 'result.Err'
            sink←awaitTask'invokeResponse'(result context)
        :else 
            errns.InvocationErr←'Execution'

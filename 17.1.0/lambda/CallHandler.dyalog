@@ -1,4 +1,4 @@
-lambdaresult←callHandler_Do arg;const;handler;appparts;handlername;modulepath;userhandler;fns;reject;resolve;context;err;result;event;en;descrition;stack
+lambdaresult←callHandler_Do arg;const;handler;appparts;handlername;modulepath;userhandler;fns;reject;resolve;context;errns;result;event;en;descrition;stack
  handler (event context)←arg
 
  lambdaresult←⎕NS''
@@ -13,11 +13,11 @@ lambdaresult←callHandler_Do arg;const;handler;appparts;handlername;modulepath;
          en←⎕DMX.EN
          descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
          stack←1 0↓↑⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
-         err←toLambdaErr en descrition stack
-         err.Resolved←1
+         errns←toLambdaErr en descrition stack
+         errns.Resolved←1
      :Else
-         err←⎕NS''
-         err.Resolved←0
+         errns←⎕NS''
+         errns.Resolved←0
      :EndTrap
-     lambdaresult.Err←err
+     lambdaresult.Err←errns
  :EndTrap

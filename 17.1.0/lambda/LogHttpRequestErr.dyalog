@@ -1,12 +1,11 @@
- logHttpRequestErr arg;msg;ts;id;ns;path;req
+ logHttpRequestErr arg;msg;ts;id;errns;path;req
  path req←arg
  ts←⎕TS
- ns←⎕NS''
- ns.RequestHttpStatus←req.HttpStatus
- ns.RequestHttpMessage←req.HttpMessage
- ns.RequestHeaders←(↓req.Headers)
- ns.Name←path
- ns.TS←ts
+ errns←⎕NS''
+ errns.RequestHttpStatus←req.HttpStatus
+ errns.RequestHttpMessage←req.HttpMessage
+ errns.RequestHeaders←(↓req.Headers)
+ errns.Name←path
+ errns.TS←ts
  
- msg←⎕JSON ns
- logErr msg
+ logErrNs ns
