@@ -1,5 +1,0 @@
-    fns←loadHandlerModule arg;path;module
-    path module←arg
-    fns←0
-    ⍝Try firts dws and then load all from folder.
-    ⍝Result fns as String : List of fixed APL functions. 
