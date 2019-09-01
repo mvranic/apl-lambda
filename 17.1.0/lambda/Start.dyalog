@@ -1,4 +1,5 @@
 start;handler;descrition;en;stack;err
+⍝ bootstarper.daylog has to be run before.
  :Trap 0
     handler←getHandler
  :Else
