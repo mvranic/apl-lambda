@@ -1,1 +1,0 @@
- ]dbuild 'C:\gitrepos\apl-lambda\17.1.0\apllambda'
