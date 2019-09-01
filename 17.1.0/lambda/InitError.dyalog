@@ -1,5 +1,4 @@
-res←initError arg;context;err;errns
+res←initError arg;context;err
 ⍝ Argument context must be namesapce with context arguments.
- errns context←arg
- err←⎕JSON errns
+ err context←arg
  res←postError(RUNTIME_PATH'/init/error')err
