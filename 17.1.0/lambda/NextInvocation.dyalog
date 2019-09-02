@@ -16,6 +16,7 @@
  deadlinems←req.headers[req.Headers[;1]⍳⊂'lambda-runtime-deadline-ms';]
  context.awsRequestId←req.headers[req.Headers[;1]⍳⊂'lambda-runtime-aws-request-id';]
  context.invokedFunctionArn←req.headers[req.Headers[;1]⍳⊂'lambda-runtime-invoked-function-arn';]
+ context.deadlineMs←deadlinems
  context.logGroupName←#.AWS_LAMBDA_LOG_GROUP_NAME
  context.logStreamName←#.AWS_LAMBDA_LOG_STREAM_NAME
  context.functionName←#.AWS_LAMBDA_FUNCTION_NAME
@@ -30,7 +31,6 @@
     B←(⍺<0 100 100⊥↑yy mm dd)×(2-A)+⌊A÷4    ⍝ Gregorian calendar correction.
     ¯2416544+D+B+⊃+/⌊365.25 30.6×Y M+4716 1 ⍝ (fractional) days.
  }
- context.getRemainingTimeInMillis←deadlineMs-1000×86400∘×∘(-∘25568)∘days ⎕TS
  context.callbackWaitsForEmptyEventLoop←1
 
  :If (⊂'lambda-runtime-client-context')∊req.Headers[;1]
