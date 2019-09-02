@@ -40,12 +40,13 @@ int main(void) {
   char max_old_space_size[ARG_BUF_SIZE];
   snprintf(max_old_space_size, ARG_BUF_SIZE, "--max-old-space-size=%d", mem_size * 90 / 100);
 
-
-  execv(DYALOG, (char *[]){
-                             "dyalog",
-                             "+s",
- //                            "<$@",
-                             "/opt/bootstrap.apl"});
+  //  char *const parmList[] = {"/bin/ls", "-la", NULL};
+  char *const parmList[] = {"+s", "/opt/apllambda/Distribution/apllambda.dws", NULL};
+  char dyalogexe[FILENAME_BUF_SIZE];
+  snprintf(dyalogexe, FILENAME_BUF_SIZE, "%s/dyalog",DYALOG);
+ // printf( "Ready to lunch %s:\n", dyalogexe);
+  execv(dyalogexe,  parmList);
+  //                            "<$@",
   perror("Could not execv");
   return EXIT_FAILURE;
 }

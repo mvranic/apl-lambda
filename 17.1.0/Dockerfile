@@ -3,7 +3,7 @@ FROM lambci/lambda-base:build
 ARG APL_VERSION
 
 COPY bootstrap.c /opt/
-COPY Distribution/ /opt/boostrap/Distribution/
+COPY Distribution/ /opt/apllambda/Distribution/
 COPY output/ /opt/
 
 

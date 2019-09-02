@@ -4,5 +4,5 @@ Description: APL runtime for AWS lambda
 Defaults   : ⎕IO←⎕ML←1
 TARGET     : Distribution/apllambda.dws
 
-APL   : lambda/*.dyalog, Target=#
-LX    : start 
+APL   : source/*.dyalog, Target=#
+LX    : bootstrap 
