@@ -2,6 +2,7 @@
 export APL_VERSION=17.1.0
 
 rm ./layer.zip
+rm -rf ./layer
 rm -rf ./output
 
 # Can not update lambci/lambda-base:build docker image:
@@ -33,3 +34,7 @@ docker -H:2375 run --rm apl-provided-lambda-v${APL_VERSION} cat /tmp/apl-v${APL_
 
 # Buid end.
 
+mkdir ./layer
+unzip ./layer.zip -d ./layer
+
+# Needed for test

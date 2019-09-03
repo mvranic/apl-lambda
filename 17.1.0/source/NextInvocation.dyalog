@@ -1,7 +1,7 @@
  res←nextInvocation;req;deadlinems;context;event;_days;method;headers;data;url
 
  method url headers data←'GET'(#.RUNTIME_PATH,'/invocation/next')⍬ ⍬
- req←awaitTask request method url headers data
+ req←awaitTask requestCreate method url headers data
 
  :If req.HttpStatus≠200
     ('Unexpected /invocation/next response HttpStatus=',(⍕req.HttpStatus)' Url=',url))⎕SIGNAL enCUSTOM

@@ -8,9 +8,9 @@
      body←⍬
  :EndIf
  headers←⍬
- req←awaitTask asyncTask'request'(method url headers body)
+ req←awaitTask requestCreate(method url headers body)
 
- :If req.StstusCode≠202
+ :If req.HttpStatus≠202
      msg←'Unexpected ',url,' /invocation/response HttpStatus: ',(⍕req.HttpStatus),' ,HttpMessage: ',req.HttpMessage
      logHttpRequestErr url req
      msg ⎕SIGNAL #.enCUSTOM

@@ -7,7 +7,7 @@ start;handler;descrition;en;stack;err
     descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
     stack←1 0↓↑⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
     err←en descrition stack
-    initError err
+    sink←initError err
     ⎕OFF 1
  :EndTrap
  tryProcessEvents handler

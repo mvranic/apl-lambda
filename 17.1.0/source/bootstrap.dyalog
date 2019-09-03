@@ -1,4 +1,4 @@
-bootstrap
+bootstrap;apphome
 logInfo 'Starting AWS lambda APL runtime...'
 apphome←'/opt'
 

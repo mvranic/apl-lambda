@@ -1,6 +1,6 @@
 processEvents handler;context;event;next;result;err;descrition;en;stack;sink;errns
  :While 1
-    next←awaitMe nextInvocation
+    next←awaitTask nextInvocation
     event←next.Value.event
     context←next.Value.context
     :Trap 0

@@ -1,3 +1,7 @@
-res←initError err;context;err
+res←initError err
 ⍝ Argument context must be namesapce with context arguments.
- res←postError(RUNTIME_PATH,'/init/error')err
+ res←⍬
+ :Trap #.enCUSTOM
+    res←postError(RUNTIME_PATH,'/init/error')err
+ :EndTrap
+ 
