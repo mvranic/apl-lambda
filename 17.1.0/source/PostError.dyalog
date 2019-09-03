@@ -4,7 +4,7 @@
  method←'POST'
  headers←0 2⍴''
  headers⍪←'Content-Type' 'application/json'
- headers⍪←'Lambda-Runtime-Function-Error-Type' (⍕lambdaerr.ErrorType)
+ headers⍪←'Lambda-Runtime-Function-Error-Type' (⍕lambdaerr.errorType)
  body←⎕JSON lambdaerr
  req←awaitMe asyncTask'request'(path method headers body)
  :If req.StstusCode≠202
