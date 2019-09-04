@@ -1,11 +1,9 @@
 lambdaresult←callHandler arg;const;handler;appparts;handlername;modulepath;userhandler;fns;reject;resolve;context;errns;result;event;en;descrition;stack;state
- logInfo 'callHandler arg:'arg
  handler (event context)←arg
 
  logInfo 'callHandler handler:' handler
- logInfo 'event:' event
- logInfo 'context:' context
-⍝ logInfo 'context (as JSON):' ⎕JSON context
+⍝ logInfo 'event:' event
+⍝ logInfo 'context:' context
 
  lambdaresult←⎕NS''
  lambdaresult.Result←⍬

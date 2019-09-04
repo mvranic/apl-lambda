@@ -1,9 +1,10 @@
-bootstrap;apphome
+bootstrap
 logInfo 'Starting AWS lambda APL runtime...'
-apphome←'/opt'
+#.APPHOME←'/opt'
+logInfo '#.APPHOME='#.APPHOME 
 
-⎕CY  apphome,'/JSONServer/Distribution/JSONServer.dws'
-⎕CY  apphome,'/aplasync/Distribution/aplasync.dws'
+⎕CY  #.APPHOME,'/JSONServer/Distribution/JSONServer.dws'
+⎕CY  #.APPHOME,'/aplasync/Distribution/aplasync.dws'
 
 setConstants
 start

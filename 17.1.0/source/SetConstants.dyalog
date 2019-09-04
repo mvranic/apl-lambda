@@ -1,4 +1,4 @@
-setConstants;apphome;fnname;folder;lx;nr;port;server;timeout;wrrapername
+setConstants;fnname;folder;lx;nr;port;server;timeout;wrrapername
  _empty←{0∊⍴⍵}
  _getenv←{2 ⎕NQ'.' 'GetEnvironment'⍵}
  _split←{a←,⍺
@@ -7,11 +7,11 @@ setConstants;apphome;fnname;folder;lx;nr;port;server;timeout;wrrapername
  }
  _lowcase←{819⌶⍵}
 
+ #.LOGINFO←1
  logInfo'Start init. of APL lambda.'
 
- apphome←'/opt'
- folder←apphome,'/aplcode'
- logInfo'Folder with apl code:'folder
+ ⍝folder←#.APPHOME,'/aplcode'
+ ⍝logInfo'Folder with apl code:'folder
 
 
  #.RUNTIME_PATH←'/2018-06-01/runtime'
