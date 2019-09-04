@@ -5,7 +5,7 @@ start;handler;descrition;en;stack;err
  :Else
     en←⎕DMX.EN
     descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
-    stack←1 0↓↑⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
+    stack←⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
     err←en descrition stack
     sink←initError err
     ⎕OFF 1

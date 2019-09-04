@@ -1,7 +1,7 @@
  res←invokeResponse arg;context;result;method;url;body;headers;req;msg
  result context←arg
  method←'POST'
- url←#.RUNTIME_PATH,'/invocation/',awsRequestId,'/response'
+ url←#.RUNTIME_PATH,'/invocation/',context.awsRequestId,'/response'
  :If 0≠⊃⍴result
      body←⎕JSON result
  :Else

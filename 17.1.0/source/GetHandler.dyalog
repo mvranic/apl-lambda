@@ -7,8 +7,13 @@ handlername←getHandler;const;appparts;handlername;modulepath;handleravalible;f
  :EndIf
 
  modulepath handlername←appparts
+ modulepath←LAMBDA_TASK_ROOT,'/',modulepath
+ logInfo 'Get handler:'
+ logInfo 'modulepath:' modulepath
+ logInfo 'handlername:' handlername
 
- fns←loadHandlerModule LAMBDA_TASK_ROOT,'/',modulepath
+ fns←loadHandlerModule modulepath
+ logInfo 'Ready fns:' fns
  handleravalible←(⊂handlername)∊fns
 
  :If ~handleravalible
