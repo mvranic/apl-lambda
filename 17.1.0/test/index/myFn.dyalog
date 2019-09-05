@@ -1,5 +1,6 @@
-res←myFn arg;event;context
-event context←arg
-⎕←'Hallo from myFn'
-⎕←event context
-res←event
+res←myFn arg;event;context;deadline
+  event context←arg
+  ⎕←'Hi from APL on AWS Lambda!'
+  deadline←⍎⊃context.deadlineMs
+  ⎕←'There is '(#.getRemainingTimeInMillis deadline ⎕TS)' ms remaining.'
+  res←event
