@@ -1,13 +1,12 @@
-setConstants;fnname;folder;lx;nr;port;server;timeout;wrrapername
+﻿ setConstants;fnname;folder;lx;nr;port;server;timeout;wrrapername
  _empty←{0∊⍴⍵}
  _getenv←{2 ⎕NQ'.' 'GetEnvironment'⍵}
  _split←{a←,⍺
-    w←a,⍵
-    (⍴a)↓¨(a⍷w)⊂w
+     w←a,⍵
+     (⍴a)↓¨(a⍷w)⊂w
  }
  _lowcase←{819⌶⍵}
 
- #.LOGINFO←1
  logInfo'Start init. of APL lambda.'
 
  ⍝folder←#.APPHOME,'/aplcode'
@@ -43,8 +42,8 @@ setConstants;fnname;folder;lx;nr;port;server;timeout;wrrapername
 
  #.HOST #.PORT←':'_split #.AWS_LAMBDA_RUNTIME_API
 
- logInfo 'Dyalog:'
+ logInfo'Dyalog:'
  ⎕PW←160
- logInfo '⎕PW:'⎕PW
+ logInfo'⎕PW:'⎕PW
 
  logInfo'End init. of APL lambda.'

@@ -1,4 +1,7 @@
 bootstrap
+
+#.LOGINFO←1
+
 logInfo 'Starting AWS lambda APL runtime...'
 #.APPHOME←'/opt'
 logInfo '#.APPHOME='#.APPHOME 
