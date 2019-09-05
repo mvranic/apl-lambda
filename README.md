@@ -9,18 +9,17 @@
 In example the Dyalog binaries are at: ```./dyalog/opt/mdyalog```
 The files can be extracted as describe at [How to get Dyalog Linux binaries from Dyalog image](./GetDyalog.md)
 
-# Create Dyalog APL AWS lambda layer
-In progress...
-
 # How to use APL lambda
 
 Save as `index.apl`:
 
 ```apl
-event←index arg;context
-   event context←arg
-   ⎕←'Hi from APL on Lambda!'
-   ⎕←'There is ',(⍕getRemainingTimeInMillis context.deadlineMs ⎕TS),' ms remaining'
+res←myFn arg;event;context;deadline
+  event context←arg
+  ⎕←'Hi from APL on AWS Lambda!'
+  deadline←⍎⊃context.deadlineMs
+  ⎕←'There is '(#.getRemainingTimeInMillis deadline ⎕TS)' ms remaining.'
+  res←event
 ```
 
 Then bundle up into a zipfile – this is your function bundle:
@@ -53,17 +52,14 @@ Then save your lambda and test it with a test event!
 
 ## Current Version ARNs
 
-| Node.js version | ARN |
-| --- | --- |
-| 10.16.3 | `arn:aws:lambda:<region>:553035198032:layer:nodejs10:17` |
-| 12.9.0  | `arn:aws:lambda:<region>:553035198032:layer:nodejs12:13` |
+| Version | ARN | Description |
+| --- | --- | --- |
+| 1 | `arn:aws:lambda:us-east-2:882298957436:layer:apl-v17_1-test:1` | Dyalog APL runtime | 
+| | |  |
 
-## Previous Version ARNs
 
-| Node.js version | ARN |
-| --- | --- |
-| 12.8.1  | `arn:aws:lambda:<region>:553035198032:layer:nodejs12:12` |
-| 10.16.2 | 
+# Create Dyalog APL AWS lambda layer
+To be wriiten.
 
 
 # See

@@ -1,4 +1,7 @@
  fns←loadHandlerModule path;module;logmsg;nr;file;files;dwsfile;dws;dwss;sink;fn;encoding;newline
+ logInfo 'loadHandlerModule path:' path
+ logInfo 'loadHandlerModule 1 ⎕NPARTS path,''/*.dws'':' (1 ⎕NPARTS path,'/*.dws')
+ 
  dwss←⊃{(⍵=2)/⍺}/0 1(⎕NINFO⍠1)∊1 ⎕NPARTS path,'/*.dws'
  :For dws :In dwss
      dwsfile←path,'/',dws
