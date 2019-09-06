@@ -1,0 +1,8 @@
+﻿DyalogBuild: 0.1
+ID         : apllambdaload, Version=0.1
+Description: Load APL runtime for AWS lambda is separate namesapce.
+Defaults   : ⎕IO←⎕ML←1
+TARGET     : Distribution/apllambdaload.dws
+
+APL   : bootstartsource/*.dyalog, Target=#
+LX    : loadAplLambda 

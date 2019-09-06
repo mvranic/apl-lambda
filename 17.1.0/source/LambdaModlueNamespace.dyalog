@@ -1,0 +1,2 @@
+nsname←lambdaModlueNamespace
+nsname←'LambdaModlueNamespace'

@@ -1,4 +1,4 @@
-lambdaresult←callHandler arg;const;handler;appparts;handlername;modulepath;userhandler;fns;reject;resolve;context;errns;result;event;en;descrition;stack;state
+lambdaresult←callHandler arg;const;handler;appparts;handlername;modulepath;userhandler;fns;reject;resolve;context;errns;result;event;en;descrition;stack;state;execnsname;sink
  handlername (event context)←arg
 
  logInfo 'callHandler handler:' handlername
@@ -9,12 +9,22 @@ lambdaresult←callHandler arg;const;handler;appparts;handlername;modulepath;use
  lambdaresult.Result←⍬
  lambdaresult.Err←⍬
 
+:do
+  execnsname←⊃,/⍕¨⎕TS,(?100000)
+:while 0≠⎕NC execnsname
+
+ sink←execnsname ⎕NS lambdaModlueNamespace
+
  :Trap 0
-     result←⍎handlername,'(event context)'
+     :With execnsname
+       ##.result←⍎handlername,'(event context)'
+     :Endwith
+     ⎕EX execnsname
      lambdaresult.Result←result
-     state←'OK' 
+     state←'OK'
  :Else
-     state←'Error' 
+     ⎕EX execnsname
+     state←'Error'
      :Trap 0
          en←⎕DMX.EN
          descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)

@@ -1,0 +1,2 @@
+nsname←aplLambdaNsName
+nsname←'AplLambdaNsName'

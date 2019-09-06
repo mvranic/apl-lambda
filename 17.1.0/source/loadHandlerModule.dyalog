@@ -7,10 +7,13 @@
  json encoding newline←⎕NGET packagefile
  sink←encoding newline
  package←⎕JSON json
+ sink←'LambdaModlueNamespace'NS '⎕'
  :For dws :In package.DwsFiles
      dwsfile←path,'/',dws
      logInfo'Loading ',dwsfile,' ...'
-     ⎕CY dwsfile
+     :With lambdaModlueNamespace
+        ⎕CY dwsfile
+     :endwith
  :EndFor
  :For file :In package.DyalogFiles
      dyalogfile←path,'/',file
@@ -18,10 +21,14 @@
      nr encoding newline←⎕NGET dyalogfile
      nr←⎕UCS (⎕UCS nr)~13
      nr←(⎕UCS 10)_split nr
-     fn←⎕FX nr
+     :With lambdaModlueNamespace
+        ##.fn←⎕FX nr
+     :Endwith
      logInfo'Fixed: ',fn
  :EndFor
 
- fns←' '~⍨¨↓⎕NL⊂3
+ :With lambdaModlueNamespace
+   ##.fns←' '~⍨¨↓⎕NL⊂3
+ :Endwith
  logmsg←'Avalibe functions:'fns
  logInfo logmsg
