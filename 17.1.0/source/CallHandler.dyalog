@@ -1,7 +1,7 @@
 lambdaresult←callHandler arg;const;handler;appparts;handlername;modulepath;userhandler;fns;reject;resolve;context;errns;result;event;en;descrition;stack;state
- handler (event context)←arg
+ handlername (event context)←arg
 
- logInfo 'callHandler handler:' handler
+ logInfo 'callHandler handler:' handlername
 ⍝ logInfo 'event:' event
 ⍝ logInfo 'context:' context
 
@@ -10,7 +10,7 @@ lambdaresult←callHandler arg;const;handler;appparts;handlername;modulepath;use
  lambdaresult.Err←⍬
 
  :Trap 0
-     result←⍎handler,'(event context)'
+     result←⍎handlername,'(event context)'
      lambdaresult.Result←result
      state←'OK' 
  :Else

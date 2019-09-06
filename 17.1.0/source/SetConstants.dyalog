@@ -1,6 +1,5 @@
 ﻿ setConstants;fnname;folder;lx;nr;port;server;timeout;wrrapername
  _empty←{0∊⍴⍵}
- _getenv←{2 ⎕NQ'.' 'GetEnvironment'⍵}
  _split←{a←,⍺
      w←a,⍵
      (⍴a)↓¨(a⍷w)⊂w

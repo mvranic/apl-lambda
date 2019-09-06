@@ -1,6 +1,6 @@
- tryProcessEvents handler;en;descrition;stack;err
+ tryProcessEvents handlername;en;descrition;stack;err
  :Trap 0
-     processEvents handler
+     processEvents handlername
  :Else
      ⎕←'Error on process events.'
      :Trap 0

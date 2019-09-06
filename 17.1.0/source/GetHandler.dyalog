@@ -1,21 +1,20 @@
-handlername←getHandler;const;appparts;handlername;modulepath;handleravalible;fns
- appparts←'.'_split _HANDLER
+handlername←getHandler;appparts;module;fns;handleravalible
+ appparts←'.'_split #._HANDLER
 
  :If 2≢appparts
  :AndIf 2≠⊃⍴appparts
-    ('Bad handler ',_HANDLER)⎕SIGNAL enCUSTOM
+    ('Bad handler ',#._HANDLER)⎕SIGNAL #.enCUSTOM
  :EndIf
+ module handlername←appparts
 
- modulepath handlername←appparts
- modulepath←LAMBDA_TASK_ROOT,'/',modulepath
  logInfo 'Get handler:'
- logInfo 'modulepath:' modulepath
  logInfo 'handlername:' handlername
 
- fns←loadHandlerModule modulepath
+ fns←loadHandlerModule module
  logInfo 'Ready fns:' fns
  handleravalible←(⊂handlername)∊fns
 
+ logInfo 'Handler avalible:'handleravalible
  :If ~handleravalible
-    ('Handler ',handlername,' missing on module ',modulepath)⎕SIGNAL enCUSTOM
+    ('Handler ',handlername,' missing on module ',module)⎕SIGNAL #.enCUSTOM
  :EndIf

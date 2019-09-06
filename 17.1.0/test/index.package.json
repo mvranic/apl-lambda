@@ -1,0 +1,4 @@
+{
+    "DyalogFiles" : ["AplHandler.dyalog"],
+    "DwsFiles" : ["myLib.dws"]
+}

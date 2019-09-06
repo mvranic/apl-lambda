@@ -1,7 +1,7 @@
-start;handler;descrition;en;stack;err
+start;handlername;descrition;en;stack;err
 ⍝ bootstarper.daylog has to be run before.
  :Trap 0
-    handler←getHandler
+    handlername←getHandler
  :Else
     en←⎕DMX.EN
     descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
@@ -10,4 +10,4 @@ start;handler;descrition;en;stack;err
     sink←initError err
     ⎕OFF 1
  :EndTrap
- tryProcessEvents handler
+ tryProcessEvents handlername

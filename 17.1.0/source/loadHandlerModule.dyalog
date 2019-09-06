@@ -1,22 +1,27 @@
- fns←loadHandlerModule path;module;logmsg;nr;file;files;dwsfile;dws;dwss;sink;fn;encoding;newline
- logInfo 'loadHandlerModule path:' path
- logInfo 'loadHandlerModule 1 ⎕NPARTS path,''/*.dws'':' (1 ⎕NPARTS path,'/*.dws')
- 
- dwss←⊃{(⍵=2)/⍺}/0 1(⎕NINFO⍠1)∊1 ⎕NPARTS path,'/*.dws'
- :For dws :In dwss
+ fns←loadHandlerModule module;packagefile;package;json;encoding;newline;sink;dws;dwsfile;path;nr;fn;file;dyalogfile;logmsg
+
+ path←#.LAMBDA_TASK_ROOT
+ packagefile←path,'/',module,'.package.json'
+
+ logInfo 'loadHandlerModule package file:' packagefile
+ json encoding newline←⎕NGET packagefile
+ sink←encoding newline
+ package←⎕JSON json
+ :For dws :In package.DwsFiles
      dwsfile←path,'/',dws
      logInfo'Loading ',dwsfile,' ...'
      ⎕CY dwsfile
  :EndFor
- files←⊃{(⍵=2)/⍺}/0 1(⎕NINFO⍠1)∊1 ⎕NPARTS path,'/*.dyalog'
- :For file :In files
-     logInfo'Loading ',file,' ...'
-     nr encoding newline←⎕NGET file
+ :For file :In package.DyalogFiles
+     dyalogfile←path,'/',file
+     logInfo'Loading ',dyalogfile,' ...'
+     nr encoding newline←⎕NGET dyalogfile
      nr←⎕UCS (⎕UCS nr)~13
      nr←(⎕UCS 10)_split nr
      fn←⎕FX nr
      logInfo'Fixed: ',fn
  :EndFor
+
  fns←' '~⍨¨↓⎕NL⊂3
  logmsg←'Avalibe functions:'fns
- logInfo logmsg  
+ logInfo logmsg

@@ -32,6 +32,8 @@
  :EndIf
  
  context.invokedFunctionArn←headres[headres[;1]⍳⊂'lambda-runtime-invoked-function-arn';2]
+ context.invokedFunctionArn←(⍕context.invokedFunctionArn)~' '
+ 
  context.deadlineMs←deadlinems
  context.logGroupName←#.AWS_LAMBDA_LOG_GROUP_NAME
  context.logStreamName←#.AWS_LAMBDA_LOG_STREAM_NAME

@@ -5,4 +5,4 @@ Defaults   : ⎕IO←⎕ML←1
 TARGET     : Distribution/apllambda.dws
 
 APL   : source/*.dyalog, Target=#
-LX    : bootstrap 
+LX    : aplLambdaBootstrap 

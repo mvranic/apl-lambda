@@ -30,6 +30,11 @@ logInfo 'makeRequest data:'data
      cmd.Headers⍪←headers
  :EndIf
  :If 0≠⊃⍴data
+     logInfo 'data:'data
+     logInfo '⎕NC data:'(⎕NC'data')
+     logInfo '⍴data:'(⍴data)
+     logInfo '≡data:'(≡data)
+     logInfo '⎕DR data:' (⎕DR data)
      cmd.Params←⎕JSON data
  :EndIf
  logInfo 'Request to run:' cmd.Command cmd.URL cmd.Headers cmd.Params
