@@ -41,7 +41,7 @@ int main(void) {
   snprintf(max_old_space_size, ARG_BUF_SIZE, "--max-old-space-size=%d", mem_size * 90 / 100);
 
   //  char *const parmList[] = {"/bin/ls", "-la", NULL};
-  char *const parmList[] = {"+s", "/opt/apllambda/Distribution/apllambda.dws", NULL};
+  char *const parmList[] = {"+s", "/opt/apllambda/Distribution/apllambdaload.dws", NULL};
   char dyalogexe[FILENAME_BUF_SIZE];
   snprintf(dyalogexe, FILENAME_BUF_SIZE, "%s/dyalog",DYALOG);
  // printf( "Ready to lunch %s:\n", dyalogexe);

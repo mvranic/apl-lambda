@@ -4,7 +4,7 @@ start;handlername;descrition;en;stack;err
     handlername←getHandler
  :Else
     en←⎕DMX.EN
-    descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
+    descrition←2↓⊃,/(⊂'\n '),¨(⎕DMX.DM),(⊂⎕DMX.Message)
     stack←⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
     err←en descrition stack
     sink←initError err

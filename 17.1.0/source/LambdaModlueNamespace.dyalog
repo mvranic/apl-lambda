@@ -1,2 +1,2 @@
-nsname←lambdaModlueNamespace
-nsname←'LambdaModlueNamespace'
+nsname←lambdaModlueNamespaceName
+nsname←'#.LambdaModlueNamespace'

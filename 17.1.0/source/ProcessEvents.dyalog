@@ -19,7 +19,7 @@ processEvents handler;context;event;next;result;err;descrition;en;stack;sink;err
        :endif
     :Else
        en←⎕DMX.EN
-       descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
+       descrition←2↓⊃,/(⊂'\n '),¨(⎕DMX.DM),(⊂⎕DMX.Message)
        stack←⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
        errns←toLambdaErr  en descrition stack  
        errns.InvocationErr←'Invocation'

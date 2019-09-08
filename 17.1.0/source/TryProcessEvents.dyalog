@@ -5,7 +5,7 @@
      ⎕←'Error on process events.'
      :Trap 0
          en←⎕DMX.EN
-         descrition←2↓⊃,/(⊂'\n'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
+         descrition←2↓⊃,/(⊂'\n '),¨(⎕DMX.DM),(⊂⎕DMX.Message)
          stack←⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
          err←toLambdaErr en descrition stack
          logErrNs err

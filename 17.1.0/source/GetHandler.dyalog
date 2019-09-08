@@ -1,9 +1,9 @@
 handlername←getHandler;appparts;module;fns;handleravalible
- appparts←'.'_split #._HANDLER
+ appparts←'.'_split  _HANDLER
 
  :If 2≢appparts
  :AndIf 2≠⊃⍴appparts
-    ('Bad handler ',#._HANDLER)⎕SIGNAL #.enCUSTOM
+    ('Bad handler ', _HANDLER)⎕SIGNAL  enCUSTOM
  :EndIf
  module handlername←appparts
 
@@ -16,5 +16,5 @@ handlername←getHandler;appparts;module;fns;handleravalible
 
  logInfo 'Handler avalible:'handleravalible
  :If ~handleravalible
-    ('Handler ',handlername,' missing on module ',module)⎕SIGNAL #.enCUSTOM
+    ('Handler ',handlername,' missing on module ',module)⎕SIGNAL  enCUSTOM
  :EndIf

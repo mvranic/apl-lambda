@@ -1,2 +1,2 @@
 logErr msg
-logMsg 'ERROR:' msg
+logMsg 1 msg

@@ -6,7 +6,7 @@ logInfo 'makeRequest data:'data
  
  cmd←⎕NEW HttpCommand
  cmd.Command←method
- cmd.URL←'http://',#.HOST,':',#.PORT,url
+ cmd.URL←'http://', HOST,':', PORT,url
  logInfo 'cmd.URL:'cmd.URL
  logInfo '⎕NC cmd.URL:'(⎕NC'cmd.URL')
  logInfo '≡cmd.URL:'(≡cmd.URL)

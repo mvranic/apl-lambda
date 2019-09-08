@@ -4,5 +4,5 @@ res←aplHandler arg;event;context;deadline
   ⎕←'Hi from APL on AWS Lambda!'
   deadline←⍎⊃context.deadlineMs
   myFn ⍝ Call to another function from MyLib.dws
-  ⎕←'There is '(#.getRemainingTimeInMillis deadline ⎕TS)' ms remaining.'
+  ⎕←'There is '(#.AplLambdaNsName.getRemainingTimeInMillis deadline ⎕TS)' ms remaining.'
   res←event

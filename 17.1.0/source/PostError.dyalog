@@ -14,5 +14,5 @@
  :If req.HttpStatus≠202
     msg←'Unexpected ',path,' response HttpStatus: ',(⍕req.HttpStatus),' ,HttpMessage: ',(_enlist req.HttpMessage)
     logHttpRequestErr path req
-    msg ⎕SIGNAL #.enCUSTOM  
+    msg ⎕SIGNAL  enCUSTOM  
  :EndIf   

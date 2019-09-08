@@ -7,5 +7,5 @@ errns←toLambdaErr err;errorname;message;stack;errns
  errns←⎕NS''
  errns.errorType←errorname
  errns.errorMessage←message
- errns.stackTrace←⊃,/(⊂'\n'),¨stack
+ errns.stackTrace←⊃,/(⊂'\n '),¨stack
  errns.Resolved←0
