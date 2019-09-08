@@ -1,5 +1,6 @@
  res←invokeResponse arg;context;result;method;url;body;headers;req;msg
  result context←arg
+ logInfo 'invokeResponse' result context
  method←'POST'
  url← RUNTIME_PATH,'/invocation/',context.awsRequestId,'/response'
  :If 0≠⊃⍴result
