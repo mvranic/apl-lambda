@@ -1,6 +1,7 @@
 aplLambdaBootstrap
 _getenv←{2 ⎕NQ'.' 'GetEnvironment'⍵}
 LOGINFO←~'0'≡⍕_getenv  'APLLOGINFO'
+⎕PW←160
  
 logInfo 'Starting AWS lambda APL runtime...'
 logInfo ' APPHOME=' APPHOME 

@@ -11,10 +11,8 @@ handlername←getHandler;appparts;module;fns;handleravalible
  logInfo 'handlername:' handlername
 
  fns←loadHandlerModule module
- logInfo 'Ready fns:' fns
  handleravalible←(⊂handlername)∊fns
 
- logInfo 'Handler avalible:'handleravalible
  :If ~handleravalible
     ('Handler ',handlername,' missing on module ',module)⎕SIGNAL  enCUSTOM
  :EndIf

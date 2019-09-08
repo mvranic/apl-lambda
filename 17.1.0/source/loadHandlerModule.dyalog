@@ -1,4 +1,4 @@
- fns←loadHandlerModule module;packagefile;package;json;encoding;newline;sink;dws;dwsfile;path;nr;fn;file;dyalogfile;logmsg
+ fns←loadHandlerModule module;packagefile;package;json;encoding;newline;sink;dws;dwsfile;path;nr;fn;file;dyalogfile
 
  path← LAMBDA_TASK_ROOT
  packagefile←path,'/',module,'.package.json'
@@ -30,5 +30,5 @@
  :With lambdaModlueNamespaceName
     fns←' '~⍨¨↓⎕NL⊂3
  :Endwith
- logmsg←'Avalibe functions:'fns
- logInfo logmsg
+ logInfo'Avalibe functions in namespace ',lambdaModlueNamespaceName,':'fns
+ 

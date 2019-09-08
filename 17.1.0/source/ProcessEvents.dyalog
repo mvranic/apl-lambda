@@ -7,11 +7,12 @@ processEvents handler;context;event;next;result;err;descrition;en;stack;sink;err
     :Trap 0
        logInfo 'Handler is going to be executed:' handler
        result←awaitTask asyncTask'callHandler'(handler(event context))
-       logInfo 'Handler is executed:' handler
        errns←result.Err
        :if 9≠⎕NC 'result.Err'
+           logInfo 'Invoking Response request for ',handler,' ...'
            sink←awaitTask asyncTask'invokeResponse'(result.Result context)
-        :else 
+       :else 
+           logInfo 'Invoking Error request for ',handler,' ...'
            errns.InvocationErr←'Execution'
            err←⎕JSON errns
            sink←awaitTask asyncTask'invokeError'(err context)

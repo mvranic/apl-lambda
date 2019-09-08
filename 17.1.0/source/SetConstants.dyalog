@@ -42,7 +42,6 @@
   HOST  PORT←':'_split  AWS_LAMBDA_RUNTIME_API
 
  logInfo'Dyalog:'
- ⎕PW←160
  logInfo'⎕PW:'⎕PW
 
  logInfo'End init. of APL lambda.'
