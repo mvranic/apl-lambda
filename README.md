@@ -42,9 +42,11 @@ Then bundle up into a zipfile – this is your function bundle:
 There can be also DWS files with library to zip file.
 
 Add layer to AWS Lambda:
+
 ![Create lambda layer](https://github.com/mvranic/apl-lambda/blob/Inital/img/create_layer.png "Create lambda layer screenshot")
 
 Result will be:
+
 ![Lambda layer](https://github.com/mvranic/apl-lambda/blob/Inital/img/layer.png "APL lambda layer screenshot")
 
 Create a new Lambda function and choose the custom runtime option.
