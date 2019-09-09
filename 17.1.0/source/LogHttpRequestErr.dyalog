@@ -12,4 +12,4 @@
  errns.Name←path
  errns.TS←ts
  
- logErrNs errns
+ logErrorNs errns

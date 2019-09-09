@@ -1,13 +1,14 @@
 # APL interpreter runtime for AWS lambda
 
-**Note: Dyalog APL interpreter licence**
+**Note: Dyalog APL interpreter license**
 ```
-   Dyalog interpreter used in this project part of Dyalog docker image on Linux. 
-   Please, check the Dyalog APL interpreter licence with Dyalog ltd at http://wwww.dyalog.com
+   Dyalog interpreter used in this project part of Dyalog docker image   dyalog/dyalog on Linux and
+   THAT IS NON COMERCIAL VERSION OF DYALOG INTERPRETER.
+   Please, check the Dyalog APL interpreter license with Dyalog ltd at http://wwww.dyalog.com
 ```
 
 In example the Dyalog binaries are at: ```./dyalog/opt/mdyalog```
-The files can be extracted as describe at [How to get Dyalog Linux binaries from Dyalog image](./GetDyalog.md)
+The files can be extracted as describe at [How to get Dyalog Linux binaries from Dyalog image](./GetDyalog.md) . Dyalog will make general avalible NON COMERCIAL version of interpreter.
 
 # How to use APL lambda
 
@@ -57,10 +58,8 @@ Then save your lambda and test it with a test event!
 | 1 | `arn:aws:lambda:us-east-2:882298957436:layer:apl-v17_1-test:1` | Dyalog APL runtime | 
 | | |  |
 
-
 # Create Dyalog APL AWS lambda layer
 To be wriiten.
-
 
 # See
 1. <https://aws.amazon.com/blogs/apn/aws-lambda-custom-runtime-for-php-a-practical-example/>
@@ -71,3 +70,5 @@ To be wriiten.
 6. <https://aws.amazon.com/blogs/opensource/rust-runtime-for-aws-lambda/>
 7. <https://github.com/rrainn/aws-lambda-custom-node-runtime>
 8. <https://github.com/lambci/crambda>
+9. <http://www.dyalog.com>
+

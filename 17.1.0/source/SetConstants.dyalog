@@ -1,9 +1,6 @@
 ﻿ setConstants;fnname;folder;lx;nr;port;server;timeout;wrrapername
  _empty←{0∊⍴⍵}
- _split←{a←,⍺
-     w←a,⍵
-     (⍴a)↓¨(a⍷w)⊂w
- }
+
  _lowcase←{819⌶⍵}
 
  logInfo'Start init. of APL lambda.'
@@ -39,7 +36,7 @@
   AWS_LAMBDA_RUNTIME_API←_getenv'AWS_LAMBDA_RUNTIME_API'
  logInfo'AWS_LAMBDA_RUNTIME_API:' AWS_LAMBDA_RUNTIME_API
 
-  HOST  PORT←':'_split  AWS_LAMBDA_RUNTIME_API
+  HOST  PORT←':'textSplit  AWS_LAMBDA_RUNTIME_API
 
  logInfo'Dyalog:'
  logInfo'⎕PW:'⎕PW

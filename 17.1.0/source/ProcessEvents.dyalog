@@ -14,8 +14,7 @@ processEvents handler;context;event;next;result;err;descrition;en;stack;sink;err
        :else 
            logInfo 'Invoking Error request for ',handler,' ...'
            errns.InvocationErr←'Execution'
-           err←⎕JSON errns
-           sink←awaitTask asyncTask'invokeError'(err context)
+           sink←awaitTask asyncTask'invokeError'(errns context)
            :Continue
        :endif
     :Else
@@ -24,8 +23,7 @@ processEvents handler;context;event;next;result;err;descrition;en;stack;sink;err
        stack←⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
        errns←toLambdaErr  en descrition stack  
        errns.InvocationErr←'Invocation'
-       err←⎕JSON errns
-       sink←awaitTask asyncTask'invokeError'(err context)
+       sink←awaitTask asyncTask'invokeError'(errns context)
        :Continue
     :EndTrap
  :EndWhile

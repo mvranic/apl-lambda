@@ -1,5 +1,5 @@
 handlername←getHandler;appparts;module;fns;handleravalible
- appparts←'.'_split  _HANDLER
+ appparts←'.'textSplit  _HANDLER
 
  :If 2≢appparts
  :AndIf 2≠⊃⍴appparts

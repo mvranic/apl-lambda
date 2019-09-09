@@ -10,9 +10,6 @@ rm -rf ./output
 apt-get install dos2unix 
 apt-get install --assume-yes git
 
-# HttpCommand is needed with conga only. JSON server as such is not used.
-git clone https://github.com/Dyalog/JSONServer.git output/JSONServer
-
 # Markos APL async Tasks:
 git clone https://github.com/mvranic/aplasync.git output/aplasync 
 

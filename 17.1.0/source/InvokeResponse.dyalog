@@ -4,11 +4,12 @@
  method←'POST'
  url← RUNTIME_PATH,'/invocation/',context.awsRequestId,'/response'
  :If 0≠⊃⍴result
-     body←⎕JSON result
+     body←'UTF-8'⎕UCS'UTF-8'⎕UCS ⎕JSON result
  :Else
      body←⍬
  :EndIf
- headers←⍬
+ headers←0 2⍴'' 
+ headers⍪←'Content-Type' 'application/json; charset=utf-8'
  req←awaitTask requestCreate(method url headers body)
 
  :If req.HttpStatus≠202

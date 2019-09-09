@@ -19,8 +19,8 @@
      dyalogfile←path,'/',file
      logInfo'Loading ',dyalogfile,' ...'
      nr encoding newline←⎕NGET dyalogfile
-     nr←⎕UCS (⎕UCS nr)~13
-     nr←(⎕UCS 10)_split nr
+     nr←⎕UCS(⎕UCS nr)~13 ⍝ newline was not realy used as spliter but just /n.
+     nr←(⎕UCS 10)textSplit nr
      :With lambdaModlueNamespaceName
         fn←⎕FX nr
      :Endwith
