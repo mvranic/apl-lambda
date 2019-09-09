@@ -41,6 +41,8 @@ Then bundle up into a zipfile – this is your function bundle:
 
 There can be also DWS files with library to zip file.
 
+The code for example could found in ./17.1.0/test folder.
+
 Add layer to AWS Lambda:
 
 ![Create lambda layer](https://github.com/mvranic/apl-lambda/blob/Inital/img/create_layer.png "Create lambda layer screenshot")
