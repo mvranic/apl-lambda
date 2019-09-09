@@ -45,19 +45,19 @@ The code for example could found in ./17.1.0/test folder.
 
 Add layer to AWS Lambda:
 
-![Create lambda layer](https://github.com/mvranic/apl-lambda/blob/Inital/img/create_layer.png "Create lambda layer screenshot")
+![Create lambda layer](squhttps://github.com/mvranic/apl-lambda/blob/master/imgashcreate_layer.png "Create lambda layer screenshot")
 
 Result will be:
 
-![Lambda layer](https://github.com/mvranic/apl-lambda/blob/Inital/img/layer.png "APL lambda layer screenshot")
+![Lambda layer](squhttps://github.com/mvranic/apl-lambda/blob/master/imgashlayer.png "APL lambda layer screenshot")
 
 Create a new Lambda function and choose the custom runtime option.
 
-![Create lambda](https://github.com/mvranic/apl-lambda/blob/Inital/img/create.png "Create lambda screenshot")
+![Create lambda](squhttps://github.com/mvranic/apl-lambda/blob/master/imgashcreate.png "Create lambda screenshot")
 
 Select your `index.zip` as the "Function code" and change the handler form "index.handler" to "index.aplHandler".
 
-![Function code](https://github.com/mvranic/apl-lambda/blob/Inital/img/function_code.png "Function code setup screenshot")
+![Function code](squhttps://github.com/mvranic/apl-lambda/blob/master/imgashfunction_code.png "Function code setup screenshot")
 
 Then click on Layers and choose "Add a layer", and "Provide a layer version ARN" and enter the following ARN:
 
@@ -65,11 +65,11 @@ Then click on Layers and choose "Add a layer", and "Provide a layer version ARN"
 arn:aws:lambda:us-east-2:882298957436:layer:Dyalog_APL_17_0:1
 ```
 
-![Add layer to function](https://github.com/mvranic/apl-lambda/blob/Inital/img/add_function_layer.png "Function add layer setup screenshot")
+![Add layer to function](squhttps://github.com/mvranic/apl-lambda/blob/master/imgashadd_function_layer.png "Function add layer setup screenshot")
 
 Then save your lambda and test it with a test event!
 
-![Test event output](https://github.com/mvranic/apl-lambda/blob/Inital/img/log.png "Test event output screenshot")
+![Test event output](squhttps://github.com/mvranic/apl-lambda/blob/master/imgashlog.png "Test event output screenshot")
 
 ## Current Version ARNs
 
