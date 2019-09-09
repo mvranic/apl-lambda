@@ -89,6 +89,10 @@ To build layer.zip use *build.sh*
 ## To test layer local
 To test use *test.sh*
 
+# Known issues
+The event body should be esaped:
+'{\"name\":\"vale\"}'
+
 # See
 1. Dyalog APL interpret home <http://www.dyalog.com>
 2. AWS Lambda Custom runtime <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html>

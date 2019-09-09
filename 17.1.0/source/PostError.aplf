@@ -2,6 +2,7 @@
  path err←arg
  json←⎕JSON err
  logError 'Error to be POST-ed:' path json
+ json←⎕UCS'UTF-8'⎕UCS  json
  lx←256>⎕UCS json
  lambdaerr←⎕NS ''
  lambdaerr.Data←lx/json
