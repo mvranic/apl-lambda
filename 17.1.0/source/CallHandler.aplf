@@ -28,7 +28,7 @@ lambdaresult←callHandler arg;handlername;event;context;execnsname;sink;stmt;cu
     (⍎currns).logInfo 'Call statmanet:'stmt
     result←⍎stmt
   :EndWith
-  lambdaresult.Result←result
+  lambdaresult.Result←(⍎execnsname).result
   state←'OK'
  :Else
      ⎕EX execnsname

@@ -1,11 +1,17 @@
- res←invokeResponse arg;context;result;method;url;body;headers;req;msg
+ res←invokeResponse arg;context;result;method;url;body;headers;req;msg;ns
  result context←arg
  logInfo 'invokeResponse' result context
  method←'POST'
  url← RUNTIME_PATH,'/invocation/',context.awsRequestId,'/response'
- :If 0≠⊃⍴result
-     body←⎕UCS'UTF-8'⎕UCS result
+ :If 9=⎕NC 'result'
+     body←⎕UCS'UTF-8'⎕UCS ⎕JSON result
  :Else
+     :if result≢''
+     :orif result≢⍬
+        logWarn 'Result of function is not Json object.'
+        logWarn 'Result ⎕DR:' ⎕DR result
+        logWarn 'Result ⎕NC:' ⎕NC 'result'
+     :Endif
      body←⍬
  :EndIf
  headers←0 2⍴'' 

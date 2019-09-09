@@ -2,22 +2,28 @@ logMsg msg;type;val;typetext;ts;reqid;y;M;d;h;m;s;ms
 ⍝ Todo add context to arguments.
 ⍝ Todo add the calling function (can be found in []SI
  type val←msg
+  
+ :If LOGINFO≥type
+    :Select type
+    :Case 1
+        typetext←'[ERROR]'
+    :Case 2
+        typetext←'[WARN]'
+    :Case 3
+        typetext←'[INFO]'
+    :Case 4
+        typetext←'[DEBUG]'
+    :Else
+        typetext←'[MISC]'
+    :EndSelect
+    y M d h m s ms←⍕¨⎕TS
+    ts←y,'-',M,'-',d,'T',h,':',m,':',s,'.',ms,'Z'
 
- :Select type
- :Case 1
-     typetext←'[ERROR]'
- :Case 2
-     typetext←'[INFO]'
- :Else
-     typetext←'[MISC]'
- :EndSelect
- y M d h m s ms←⍕¨⎕TS
- ts←y,'-',M,'-',d,'T',h,':',m,':',s,'.',ms,'Z'
+    :Trap 0
+        reqid←#.AplLambdaNsName.context.awsRequestId
+    :Else
+        reqid←'unknown-reuestq-id'
+    :EndTrap
 
- :Trap 0
-     reqid←#.AplLambdaNsName.context.awsRequestId
- :Else
-     reqid←'unknown-reuestq-id'
- :EndTrap
-
- ⎕←typetext ts reqid val
+    ⎕←typetext ts reqid val
+ :EndIf

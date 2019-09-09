@@ -1,6 +1,16 @@
-aplLambdaBootstrap;code;enc;split;path;sink;code
+aplLambdaBootstrap;code;enc;env;split;path;sink;code
 _getenv←{2 ⎕NQ'.' 'GetEnvironment'⍵}
-LOGINFO←~'0'≡⍕_getenv  'APLLOGINFO'
+env←_getenv'APLLOGINFO'
+⎕←'APLLOGINFO:'env
+:if ''≡env
+  LOGINFO←1
+:Else
+ :Trap 0
+   LOGINFO←⍎env
+  :endtrap
+  LOGINFO←1
+:endif
+
 ⎕PW←160
  
 logInfo 'Starting AWS lambda APL runtime...'

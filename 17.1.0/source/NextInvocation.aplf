@@ -61,7 +61,6 @@
     context.identity←⎕JSON headres[headres[;1]⍳⊂'lambda-runtime-cognito-identity';2] ⍝ Todo: Set to env
  :EndIf
 
- event←req.Data
+ event←⎕JSON'UTF-8'⎕UCS ⎕UCS req.Data
 
  res←event context
- logInfo 'res:' res
