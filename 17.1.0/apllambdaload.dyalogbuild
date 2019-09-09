@@ -4,5 +4,5 @@ Description: Load APL runtime for AWS lambda is separate namesapce.
 Defaults   : ⎕IO←⎕ML←1
 TARGET     : Distribution/apllambdaload.dws
 
-APL   : bootstartsource/*.dyalog, Target=#
+APL   : bootstartsource/*.aplf, Target=#
 LX    : loadAplLambda 

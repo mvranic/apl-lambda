@@ -1,4 +1,4 @@
 {
-    "DyalogFiles" : ["AplHandler.dyalog"],
+    "DyalogFiles" : ["AplHandler.aplf"],
     "DwsFiles" : ["myLib.dws"]
 }
