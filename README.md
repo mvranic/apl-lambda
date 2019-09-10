@@ -111,8 +111,9 @@ any other value - [MISC] - Miscellaneous
 1. Asynchronous calls using async/await are used for invoke HTTP Request and execution. Maybe that is overhead as it might introduce not needed threading issues and performance.  
  Q: Will AWS start multiple runtime on throttling?  
  A: There should be present auto scaling in AWS lambda see <https://docs.aws.amazon.com/lambda/latest/dg/scaling.html>.  
-2. The event body should be esaped in the test:
+2. The event body should be esaped in the test when is issued from powershell:
 '{\"name\":\"vale\"}'
+3. Trapping of stack should be more preciese. 
 
 # See
 1. Dyalog APL interpret home <http://www.dyalog.com>

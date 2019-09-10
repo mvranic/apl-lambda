@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  MyAplFn:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.aplHandler
+      Runtime: provided
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::882298957436:role/lambda-role'
+      Environment:
+        Variables:
+          APLLOG: '4'
+      Layers:
+        - 'arn:aws:lambda:us-east-2:882298957436:layer:Dyalog_APL_17_0:9'
