@@ -3,7 +3,7 @@ logMsg msg;type;val;typetext;ts;reqid;y;M;d;h;m;s;ms
 ⍝ Todo add the calling function (can be found in []SI
  type val←msg
   
- :If LOGINFO≥type
+ :If APLLOG≥type
     :Select type
     :Case 1
         typetext←'[ERROR]'

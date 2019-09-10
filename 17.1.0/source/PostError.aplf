@@ -13,7 +13,11 @@
  headers⍪←'Content-Type' 'application/json; charset=utf-8'
  headers⍪←'Lambda-Runtime-Function-Error-Type' (,⍕err.errorType)
  body←⎕JSON lambdaerr
- req←awaitTask requestCreate( method path headers body)
+ :If APLASYNC
+   req←awaitTask requestCreate( method path headers body)
+ :Else
+   req←requestCreate( method path headers body)
+ :EndIf
  _enlist←{
      ⎕ML←1
      ∊⍵}

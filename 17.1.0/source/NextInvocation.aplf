@@ -5,8 +5,11 @@
  headers⍪←'Content-Type' 'application/json; charset=utf-8'
  ⍝logInfo 'Next invocation from:' method url headers data
  logInfo 'Next invocation from:' method url
- req←awaitTask requestCreate method url headers data
-
+ :If APLASYNC
+   req←awaitTask requestCreate method url headers data
+ :Else
+   req←requestCreate method url headers data   
+ :EndIf 
  :If req.HttpStatus≠200
     msg←'Unexpected /invocation/next response HttpStatus=',(⍕req.HttpStatus),' Url=',url
     msg ⎕SIGNAL enCUSTOM

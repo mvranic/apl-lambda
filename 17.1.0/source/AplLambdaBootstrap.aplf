@@ -1,17 +1,29 @@
  aplLambdaBootstrap;code;enc;env;split;path;sink;code
  _getenv←{2 ⎕NQ'.' 'GetEnvironment'⍵}
- env←_getenv'APLLOGINFO'
- ⎕←'APLLOGINFO:'env
+ env←_getenv'APLLOG'
+ ⎕←'APLLOG:'env
  :If ''≡env
-     LOGINFO←1
+     APLLOG←1
  :Else
      :Trap 0
-         LOGINFO←⍎env
+         APLLOG←⍎env
      :Else
-         LOGINFO←1
+         APLLOG←1
      :EndTrap
  :EndIf
 
+ env←_getenv'APLASYNC'
+ ⎕←'APLASYNC:'env
+ :If ''≡env
+     APLASYNC←1
+ :Else
+     :Trap 0
+         APLASYNC←⍎env
+     :Else
+         APLASYNC←1
+     :EndTrap
+ :EndIf
+ 
  ⎕PW←160
 
  logInfo'Starting AWS lambda APL runtime...'
