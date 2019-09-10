@@ -1,0 +1,8 @@
+﻿ getError;stack;en;descrition
+⍝ stack←(1↓⎕XSI),¨'[',¨(⍕¨1↓⎕LC),¨']'
+
+ stack←⎕XSI,¨'[',¨(⍕¨⎕LC),¨']'
+ en←⎕DMX.EN
+descrition←2↓⊃,/(⊂ ,';'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
+ LAMBDAERRORVEC←en descrition stack
+ ⎕SIGNAL 501

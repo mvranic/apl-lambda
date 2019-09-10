@@ -1,8 +1,8 @@
-lambdaresult←callHandler arg;handlername;event;context;execnsname;sink;stmt;currns;result;state;en;descrition;stack;errns
+ lambdaresult←callHandler arg;handlername;event;context;execnsname;sink;stmt;currns;result;state;en;descrition;stack;errns;stackstmt
  handlername(event context)←arg
 
  logInfo'callHandler handler:'handlername
- 
+
  lambdaresult←⎕NS''
  lambdaresult.Result←⍬
  lambdaresult.Err←⍬
@@ -13,36 +13,40 @@ lambdaresult←callHandler arg;handlername;event;context;execnsname;sink;stmt;cu
  :Until 0≠⎕NC'execnsname'
 
  sink←execnsname ⎕NS ⎕OR lambdaModlueNamespaceName
+ ⎕SHADOW↑'⎕TRAP' 'LAMBDAERRORVEC'
+ ⎕TRAP←(1001 'N')((501 1000)'C' ':GoTo Error')(0 'E' 'getError')
+ stmt←execnsname,'.event←event'
+ ⍎stmt
 
+ stmt←execnsname,'.context←context'
+ ⍎stmt
+
+ :With execnsname
+     (⍎currns).logInfo('⎕NL⊂3 in namespace ',execnsname,':')(⎕NL⊂3)
+     stmt←handlername,' ((⍎currns).event (⍎currns).context) '
+     (⍎currns).logInfo'Call statmanet:'stmt
+     result←⍎stmt
+ :EndWith
+ lambdaresult.Result←(⍎execnsname).result
+ state←'OK'
+ :GoTo End
+Error:
+ ⎕TRAP←0⍴⎕TRAP
+ logInfo'ERROR IS HERER'
+ ⎕←'execnsname:'execnsname
+ ⎕EX execnsname
+ state←'Error'
  :Trap 0
-  stmt←execnsname,'.event←event'
-  ⍎stmt
-
-  stmt←execnsname,'.context←context'
-  ⍎stmt
-  currns←''⎕NS''
-
-  :With execnsname
-    (⍎currns).logInfo ('⎕NL⊂3 in namespace ',execnsname, ':') (⎕NL⊂3)
-    stmt←handlername,' ((⍎currns).event (⍎currns).context) '
-    (⍎currns).logInfo 'Call statmanet:'stmt
-    result←⍎stmt
-  :EndWith
-  lambdaresult.Result←(⍎execnsname).result
-  state←'OK'
+     en←⎕DMX.EN
+     descrition←2↓⊃,/(⊂,';'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
+     errns←toLambdaErr LAMBDAERRORVEC
+     ⎕EX 'LAMBDAERRORVEC'
+     errns.Resolved←1
  :Else
-     ⎕EX execnsname
-     state←'Error'
-     :Trap 0
-         en←⎕DMX.EN
-         descrition←2↓⊃,/(⊂'\n '),¨(⎕DMX.DM),(⊂⎕DMX.Message)
-         stack←⎕SI,¨'[',¨(⍕¨⎕LC),¨']' ⍝ Not eal stack.
-         errns←toLambdaErr en descrition stack
-         errns.Resolved←1
-     :Else
-         errns←⎕NS''
-         errns.Resolved←0
-     :EndTrap
-     lambdaresult.Err←errns
+     errns←⎕NS''
+     errns.Resolved←0
  :EndTrap
+ lambdaresult.Err←errns
+End:
+
  logInfo'callHandler:'state
