@@ -11,6 +11,7 @@ In example the Dyalog binaries are at: ```./dyalog/opt/mdyalog```
 The files can be extracted as describe at [How to get Dyalog Linux binaries from Dyalog image](./GetDyalog.md) . Dyalog will make general available NON COMMERCIAL version of interpreter.
 
 # How to use APL lambda
+## Develop your APL code on desktop
 
 Save as `aplHandler.apl`:
 
@@ -42,6 +43,12 @@ Then bundle up into a zipfile – this is your function bundle:
 There can be also DWS files with library to zip file.
 
 The code for example could found in ./17.1.0/test folder.
+
+## Lets go to Cloud
+You should have account on Amazon AWS cloud at <https://aws.amazon.com/> .
+
+
+Open the [Lambda console](https://console.aws.amazon.com/lambda) .
 
 Add layer to AWS Lambda:
 
