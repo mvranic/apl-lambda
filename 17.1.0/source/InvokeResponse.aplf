@@ -16,8 +16,11 @@
  :EndIf
  headers←0 2⍴'' 
  headers⍪←'Content-Type' 'application/json; charset=utf-8'
- req←awaitTask requestCreate(method url headers body)
-
+ :if APLASYNC
+   req←awaitTask requestCreate(method url headers body)
+ :Else
+   req←requestCreate(method url headers body)    
+ :EndIf
  :If req.HttpStatus≠202
      msg←'Unexpected ',url,' /invocation/response HttpStatus: ',(⍕req.HttpStatus),' ,HttpMessage: ',req.HttpMessage
      logHttpRequestErr url req

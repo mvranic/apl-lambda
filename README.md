@@ -89,8 +89,22 @@ To build layer.zip use *build.sh*
 ## To test layer local
 To test use *test.sh*
 
+# Environment variables
+## APLASYNC - Async/Await on of
+Setting *APLASYNC* to 1 (default) are used async await model. Using this can be over head.
+## APLLOG - Logging
+There are 5 levels of logging and integer value of *APLLOG* enables logging level:
+1 - [ERROR] - Error
+2 - [WARN] - Warring
+3 - [INFO] - Information
+4 - [DEBUG] - Debug
+any other value - [MISC] - Miscellaneous
+
 # Known issues
-The event body should be esaped:
+1. Asynchronous calls using async/await are used for invoke HTTP Request and execution. Maybe that is overhead as it might introduce not needed threading issues and performance.  
+ Q: Will AWS start multiple runtime on throttling?  
+ A: There should be present auto scaling in AWS lambda see <https://docs.aws.amazon.com/lambda/latest/dg/scaling.html>.  
+2. The event body should be esaped in the test:
 '{\"name\":\"vale\"}'
 
 # See
