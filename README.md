@@ -113,6 +113,7 @@ any other value - [MISC] - Miscellaneous
  A: There should be present auto scaling in AWS lambda see <https://docs.aws.amazon.com/lambda/latest/dg/scaling.html>.  
 2. The event body should be esaped in the test:
 '{\"name\":\"vale\"}'
+3. The shell (sh) scripts likes LF instead CRLF. That can be issues if you run it from powershell with Linux subsystem.
 
 # See
 1. Dyalog APL interpret home <http://www.dyalog.com>
