@@ -53,7 +53,7 @@
  ⎕CY APPHOME,'/aplasync/Distribution/aplasync.dws'
 
  setConstants
- start
+ tryProcessEvents
 
  logInfo'Closing AWS lambda runtime.'
  ⎕OFF 0

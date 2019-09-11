@@ -1,4 +1,5 @@
- lambdaresult←callHandler arg;handlername;event;context;execnsname;sink;stmt;currns;result;state;en;descrition;stack;errns;stackstmt
+ lambdaresult←callHandler arg;handlername;event;context;execnsname;sink;stmt;currns;result;state;en;descrition;stack;errns;stackstmt;errvec
+
  handlername(event context)←arg
 
  logInfo'callHandler handler:'handlername
@@ -13,20 +14,25 @@
  :Until 0≠⎕NC'execnsname'
 
  sink←execnsname ⎕NS ⎕OR lambdaModlueNamespaceName
+ currns←''⎕NS''
  ⎕SHADOW↑'⎕TRAP' 'LAMBDAERRORVEC'
- ⎕TRAP←(1001 'N')((501 1000)'C' ':GoTo Error')(0 'E' 'getError')
+ ⎕TRAP←(1001 'N')((501 1000)'C' '→Error')(0 'E' 'getError')
+ logInfo'callHandler1:'
  stmt←execnsname,'.event←event'
  ⍎stmt
 
  stmt←execnsname,'.context←context'
  ⍎stmt
-
+logInfo'callHandler2:'
+ execnsname ⎕NS 'getError'
+ ⎕←'context.deadlineMs out' context.deadlineMs
  :With execnsname
      (⍎currns).logInfo('⎕NL⊂3 in namespace ',execnsname,':')(⎕NL⊂3)
      stmt←handlername,' ((⍎currns).event (⍎currns).context) '
      (⍎currns).logInfo'Call statmanet:'stmt
      result←⍎stmt
  :EndWith
+ logInfo'callHandler3:'
  lambdaresult.Result←(⍎execnsname).result
  state←'OK'
  :GoTo End
@@ -39,7 +45,12 @@ Error:
  :Trap 0
      en←⎕DMX.EN
      descrition←2↓⊃,/(⊂,';'),¨(⎕DMX.DM),(⊂⎕DMX.Message)
-     errns←toLambdaErr LAMBDAERRORVEC
+     :if 0≠⎕NC 'LAMBDAERRORVEC'
+     errvec←LAMBDAERRORVEC
+     :else 
+     errvec←(⍎execnsname).LAMBDAERRORVEC
+     :endif
+     errns←toLambdaErr errvec
      ⎕EX 'LAMBDAERRORVEC'
      errns.Resolved←1
  :Else

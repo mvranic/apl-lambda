@@ -1,11 +1,10 @@
 errns←toLambdaErr err;errorname;message;stack;errns
 ⍝ Returns namesapce with the Lambda error.
- logInfo 'toLambdaErr err' err
- logInfo 'toLambdaErr ⍴err'(⍴err)
- 
  errorname message stack←err
+ logInfo 'toLambdaErr errorname message stack:' errorname message stack
+ 
  errns←⎕NS''
  errns.errorType←errorname
  errns.errorMessage←message
- errns.stackTrace←⊃,/(⊂'\n '),¨stack
+ errns.stackTrace←⊃,/(⊂ ,';' ),¨stack
  errns.Resolved←0

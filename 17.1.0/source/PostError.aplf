@@ -6,7 +6,7 @@
  lx←256>⎕UCS json
  lambdaerr←⎕NS ''
  lambdaerr.Data←lx/json
-
+ ⍝lambdaerr.Data←json
  ⍝ lambdaerr.Data←'UTF-8' ⎕UCS 'UTF-8' ⎕UCS ⎕JSON err
  method←'POST'
  headers←0 2⍴''
