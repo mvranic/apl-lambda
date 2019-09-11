@@ -1,7 +1,23 @@
-res←aplHandler arg;event;context;deadline
+res←aplHandler arg;event;context;deadline;text
   event context←arg
-  ⎕←'Hi from APL (handler) on AWS Lambda!'
-  deadline←⍎⊃context.deadlineMs
+  text←'Hi from APL (handler) on AWS Lambda!'
+  ⎕←text ⍝ If logging is not enabled 
+  #.AplLambdaNsName.logInfo text
+  
   myFn ⍝ Call to another function from MyLib.dws
-  ⎕←'There is '(#.AplLambdaNsName.getRemainingTimeInMillis deadline ⎕TS)' ms remaining.'
+
+  deadline←⍎⊃context.deadlineMs
+ 
+  text←'There is '(#.AplLambdaNsName.getRemainingTimeInMillis deadline ⎕TS)' ms remaining.'
+  ⎕←text ⍝ If logging is not enabled 
+  #.AplLambdaNsName.logInfo text
+
+  text←'Context json:' (⎕JSON context)
+  ⎕←text ⍝ If logging is not enabled 
+  #.AplLambdaNsName.logInfo text
+    
+  text←'Event json:' (⎕JSON event)
+  ⎕←text ⍝ If logging is not enabled 
+  #.AplLambdaNsName.logInfo text
+  
   res←event
