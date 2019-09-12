@@ -107,13 +107,10 @@ There are 5 levels of logging and integer value of *APLLOG* enables logging leve
 4 - [DEBUG] - Debug
 any other value - [MISC] - Miscellaneous
 
-# Known issues
-1. Asynchronous calls using async/await are used for invoke HTTP Request and execution. Maybe that is overhead as it might introduce not needed threading issues and performance.  
- Q: Will AWS start multiple runtime on throttling?  
- A: There should be present auto scaling in AWS lambda see <https://docs.aws.amazon.com/lambda/latest/dg/scaling.html>.  
-2. The event body should be esaped in the test:
+# Notes: 
+1. The event body should be esaped in the test:
 '{\"name\":\"vale\"}'
-3. The shell (sh) scripts likes LF instead CRLF. That can be issues if you run it from powershell with Linux subsystem.
+2. The shell (sh) scripts likes LF instead CRLF. That can be issues if you run it from powershell with Linux subsystem.
 
 # See
 1. Dyalog APL interpret home <http://www.dyalog.com>
