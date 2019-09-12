@@ -101,10 +101,10 @@ To test use *test.sh*
 Setting *APLASYNC* to 1 (default) are used async await model. Using this can be over head.
 ## APLLOG - Logging
 There are 5 levels of logging and integer value of *APLLOG* enables logging level:
-1 - [ERROR] - Error
-2 - [WARN] - Warring
-3 - [INFO] - Information
-4 - [DEBUG] - Debug
+1. - [ERROR] - Error
+2. - [WARN] - Warring
+3. - [INFO] - Information
+4. - [DEBUG] - Debug
 any other value - [MISC] - Miscellaneous
 
 # Notes: 
