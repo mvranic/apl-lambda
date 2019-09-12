@@ -1,5 +1,5 @@
 start;handlername;descrition;en;stack;err
-⍝ bootstarper.daylog has to be run before.
+⍝ AplLambdaBootstrap.daylog has to be run before.
  :Trap 0
     handlername←getHandler
  :Else
