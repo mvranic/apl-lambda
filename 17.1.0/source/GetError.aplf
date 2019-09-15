@@ -1,0 +1,15 @@
+res←getError;vars;varname;lx;prefix
+⍝logInfo 'getError'
+   prefix←'LAMBDAERRORVEC'
+   vars←(⊂' ')~¨⍨↓#.⎕NL 2
+⍝logInfo 'getError vars' vars
+   res←⍬
+   :if ∨/lx←(⊂prefix)≡¨(⊂⍴prefix)↑¨vars
+   varname←⊃lx/vars
+⍝logInfo 'getError varname' varname
+ varname←'#.',varname
+⍝logInfo 'getError varname' varname
+⍝logInfo 'getError ⎕NC' (⎕NC 'varname')
+   res←⍎varname
+   :endif
+⍝logInfo 'getError res' res

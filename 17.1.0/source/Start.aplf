@@ -1,17 +1,6 @@
-start;handlername;descrition;en;stack;err;errorvar;errorstmt
+start;handlername;descrition;en;stack;err;errorvar;errorstmt;si;lc
 ⍝ AplLambdaBootstrap.daylog has to be run before.
-    ⎕SHADOW↑'⎕TRAP' 
-    errorvar←'#.LAMBDAERRORVEC',∊⍕¨⎕TS
-    errorstmt←'en←⎕DMX.EN ⋄ descrition←2↓⊃,/(⊂''\n ''),¨(⎕DMX.DM),(⊂⎕DMX.Message) ⋄ stack←⎕SI,¨''['',¨(⍕¨⎕LC),¨'']'' ⋄ ',errorvar,'←en descrition stack ⋄ ⎕SIGNAL 501'
-    ⎕TRAP←(1001 'N')((501 1000)'C' '→Error')(0 'E' errorstmt)
-
-    handlername←getHandler
-    :Goto End
- Error:
-    ⎕TRAP←0⍴⎕TRAP
-    en descrition stack←⍎errorvar
-    err←toLambdaErr en descrition stack
-    sink←initError err
-    ⎕OFF 1
- End:
- tryProcessEvents handlername
+handlername← startInit
+     logInfo ¯3
+ processEvents handlername
+     logInfo ¯4

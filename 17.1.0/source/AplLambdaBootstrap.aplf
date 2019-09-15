@@ -15,12 +15,12 @@
  env←_getenv'APLASYNC'
  ⎕←'APLASYNC:'env
  :If ''≡env
-     APLASYNC←1
+     APLASYNC←0
  :Else
      :Trap 0
          APLASYNC←⍎env
      :Else
-         APLASYNC←1
+         APLASYNC←0
      :EndTrap
  :EndIf
  
