@@ -6,9 +6,10 @@ lambdaresult←callHandler arg;handlername;event;context;execnsname;sink;stmt;cu
  lambdaresult←⎕NS''
  lambdaresult.Result←⍬
  lambdaresult.Err←⍬
-
+ 
+ currns←''⎕NS''
  :Repeat
-     execnsname←'#.lambdaexec',⊃,/⍕¨⎕TS,(?100000)
+     execnsname←currns,'.lambdaexec',⊃,/⍕¨⎕TS,(?999)
      logInfo'execnsname:'execnsname
  :Until 0≠⎕NC'execnsname'
 
@@ -20,7 +21,6 @@ lambdaresult←callHandler arg;handlername;event;context;execnsname;sink;stmt;cu
 
   stmt←execnsname,'.context←context'
   ⍎stmt
-  currns←''⎕NS''
 
   :With execnsname
     (⍎currns).logInfo ('⎕NL⊂3 in namespace ',execnsname, ':') (⎕NL⊂3)
