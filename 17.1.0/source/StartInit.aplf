@@ -2,7 +2,7 @@ handlername ←startInit;descrition;en;stack;err;errorvar;errorstmt;si;lc
   handlername ←''
     ⎕SHADOW '⎕TRAP' 
     errorvar←('#.',#.LAMBDAERRORVEC),∊⍕¨⎕TS
-    errorstmt←'sink←{en←⎕DMX.EN ⋄ descrition←2↓⊃,/(⊂''\n ''),¨(⎕DMX.DM),(⊂⎕DMX.Message) ⋄ si←⎕XSI ⋄ lc←⎕LC ⋄ ',errorvar,'←en descrition si lc ⋄ ⎕SIGNAL 501 ⋄ 0} 0' 
+    errorstmt←'sink←{en←(⍕⎕DMX.EN) ⋄ descrition←2↓⊃,/(⊂''\n ''),¨(⎕DMX.DM),(⊂⎕DMX.Message) ⋄ si←1↓⎕XSI ⋄ lc←1↓⎕LC ⋄ ',errorvar,'←en descrition si lc ⋄ ⎕SIGNAL 501 ⋄ 0} 0'
     ⍝ logInfo 'startInit errorstmt:'errorstmt
     ⎕TRAP←(1001 'N')((501 1000)'C' '→Error')(0 'E' errorstmt)
 

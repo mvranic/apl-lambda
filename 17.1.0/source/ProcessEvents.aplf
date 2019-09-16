@@ -1,7 +1,7 @@
  processEvents handler;errvals;count;errorvar;errorstmt;event;context;descrition;en;si;lc;stack;err;sink;execnsname;currns;errns
  count←0
  errorvar←('#.',#.LAMBDAERRORVEC),∊⍕¨⎕TS
- errorstmt←'sink←{en←⎕DMX.EN ⋄ descrition←2↓⊃,/(⊂''\n ''),¨(⎕DMX.DM),(⊂⎕DMX.Message) ⋄ si←⎕XSI ⋄ lc←⎕LC ⋄ ',errorvar,'←en descrition si lc ⋄ ⎕SIGNAL 501 ⋄ 0} 0'
+ errorstmt←'sink←{en←(⍕⎕DMX.EN) ⋄ descrition←2↓⊃,/(⊂''\n ''),¨(⎕DMX.DM),(⊂⎕DMX.Message) ⋄ si←1↓⎕XSI ⋄ lc←1↓⎕LC ⋄ ',errorvar,'←en descrition si lc ⋄ ⎕SIGNAL 501 ⋄ 0} 0'
  ⍝ logInfo'processEvents errorstmt:'errorstmt
  :While 1
      count+←1
