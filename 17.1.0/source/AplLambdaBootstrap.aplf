@@ -24,6 +24,8 @@
      :EndTrap
  :EndIf
  
+ #.LAMBDAERRORVEC←'LAMBDAERRORVEC'
+
  ⎕PW←160
 
  logInfo'Starting AWS lambda APL runtime...'

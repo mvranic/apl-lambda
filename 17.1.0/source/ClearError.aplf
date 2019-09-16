@@ -1,9 +1,8 @@
- res←getError;vars;varname;lx;prefix
+ clearError;vars;varname;lx;prefix
  prefix←#.LAMBDAERRORVEC
  vars←(⊂' ')~¨⍨↓#.⎕NL 2
- res←⍬
  :If ∨/lx←(⊂prefix)≡¨(⊂⍴prefix)↑¨vars
      varname←⊃lx/vars
-     varname←'#.',varname
-     res←⍎varname
+     varname←(⊂'#.'),¨varname
+     ⎕EX varname
  :EndIf

@@ -1,5 +1,4 @@
  lambdaresult←callHandler arg;execnsname;handlername;event;context;currns;sink;stmt;result
- logInfo 'callHandler arg:' arg
  execnsname handlername(event context)←arg
 
  logInfo'callHandler handler:'handlername
