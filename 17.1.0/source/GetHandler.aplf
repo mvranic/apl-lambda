@@ -7,8 +7,7 @@ handlername←getHandler;appparts;module;fns;handleravalible
  :EndIf
  module handlername←appparts
 
- logInfo 'Get handler:'
- logInfo 'handlername:' handlername
+ logInfo 'Get Handler name:' handlername
 
  fns←loadHandlerModule module
  handleravalible←(⊂handlername)∊fns

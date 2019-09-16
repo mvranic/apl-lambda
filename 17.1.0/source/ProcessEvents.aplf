@@ -1,49 +1,91 @@
-processEvents handler;context;event;next;result;err;descrition;en;stack;sink;errns
+ processEvents handler;errvals;count;errorvar;errorstmt;event;context;descrition;en;si;lc;stack;err;sink;execnsname;currns;errns
  count←0
+ errorvar←('#.',#.LAMBDAERRORVEC),∊⍕¨⎕TS
+ errorstmt←'sink←{en←⎕DMX.EN ⋄ descrition←2↓⊃,/(⊂''\n ''),¨(⎕DMX.DM),(⊂⎕DMX.Message) ⋄ si←⎕XSI ⋄ lc←⎕LC ⋄ ',errorvar,'←en descrition si lc ⋄ ⎕SIGNAL 501 ⋄ 0} 0'
+ ⍝ logInfo'processEvents errorstmt:'errorstmt
  :While 1
-    count+←1
-    logInfo 'processEvents' count
-    :if APLASYNC
-       event context←awaitTask asyncTask 'nextInvocation' ⍬
-    :Else
-       event context←nextInvocation ⍬   
-    :EndIf
-    :Trap 0
-       logInfo 'Handler is going to be executed:' handler
-       :if APLASYNC
-          result←awaitTask asyncTask'callHandler'(handler(event context))
-       :Else
-          result←callHandler(handler(event context))   
-       :EndIf
-       errns←result.Err
-       :if 9≠⎕NC 'result.Err'
-           logInfo 'Invoking Response request for ',handler,' ...'
-           :if APLASYNC
-              sink←awaitTask asyncTask'invokeResponse'(result.Result context)
-           :else
-              sink←invokeResponse(result.Result context)
-           :endif
-       :else 
-           logInfo 'Invoking Error request for ',handler,' ...'
-           errns.InvocationErr←'Execution'
-           :if APLASYNC
-              sink←awaitTask asyncTask'invokeError'(errns context)
-           :Else
-              sink←invokeError(errns context)
-           :EndIf
-           :Continue
-       :endif
-    :Else
-       en←⎕DMX.EN
-       descrition←2↓⊃,/(⊂'\n '),¨(⎕DMX.DM),(⊂⎕DMX.Message)
-       stack←⎕SI,¨'[',¨(⍕¨⎕LC),¨']'
-       errns←toLambdaErr  en descrition stack  
-       errns.InvocationErr←'Invocation'
-       :if APLASYNC
-          sink←awaitTask asyncTask'invokeError'(errns context)
-       :Else
-          sink←invokeError(errns context)     
-       :EndIf
-       :Continue
-    :EndTrap
+     count+←1
+     logInfo'processEvents'count
+     ⎕SHADOW'⎕TRAP'
+     ⎕TRAP←(1001 'N')((501 1000)'C' '→ErrorNext')(0 'E'errorstmt)
+     :If APLASYNC
+         event context←awaitTask asyncTask'nextInvocation'⍬
+     :Else
+         event context←nextInvocation ⍬
+     :EndIf
+     :GoTo Invoke
+
+ErrorNext:
+     ⎕TRAP←0⍴⎕TRAP
+     :Trap 0
+         :If 0=⊃⍴errvals←getError
+             logError'Unhandled next invocation error - error is missing.'
+         :Else
+             en descrition si lc←errvals
+             clearError
+             stack←si,¨'[',¨(⍕¨lc),¨']'
+             err←toLambdaErr en descrition stack
+             sink←initError err
+         :EndIf
+     :Else
+         logError'Unhandled next invocation error.'
+     :EndTrap
+     ⎕OFF 1
+
+Invoke:
+     ⎕SHADOW'⎕TRAP'
+     ⎕TRAP←(1001 'N')((501 1000)'C' '→ErrorInvoke')(0 'E'errorstmt)
+     currns←''⎕NS''
+     :Repeat
+         execnsname←currns,'.lambdaexec',⊃,/⍕¨⎕TS,(?999)
+         logInfo'execnsname:'execnsname
+     :Until 0≠⎕NC'execnsname'
+
+     logInfo'Handler is going to be executed:'handler
+     :If APLASYNC
+         result←awaitTask asyncTask'callHandler'(execnsname handler(event context))
+     :Else
+         result←callHandler execnsname handler(event context)
+     :EndIf
+     errns←result.Err
+     :If 9≠⎕NC'result.Err'
+         logInfo'Invoking Response request for ',handler,' ...'
+         :If APLASYNC
+             sink←awaitTask asyncTask'invokeResponse'(result.Result context)
+         :Else
+             sink←invokeResponse(result.Result context)
+         :EndIf
+     :Else
+         logInfo'Invoking Error request for ',handler,' ...'
+         errns.InvocationErr←'Execution'
+         :If APLASYNC
+             sink←awaitTask asyncTask'invokeError'(errns context)
+         :Else
+             sink←invokeError(errns context)
+         :EndIf
+     :EndIf
+     :Continue
+
+ErrorInvoke:
+     ⎕TRAP←0⍴⎕TRAP
+     :Trap 0
+         :If 0=⊃⍴errvals←getError
+             logError'Unhandled invocation error - error is missing.'
+         :Else
+             en descrition si lc←errvals
+             clearError
+             stack←si,¨'[',¨(⍕¨lc),¨']'
+             errns←toLambdaErr en descrition stack
+             errns.InvocationErr←'Invocation'
+             :If APLASYNC
+                 sink←awaitTask asyncTask'invokeError'(errns context)
+             :Else
+                 sink←invokeError(errns context)
+             :EndIf
+         :EndIf
+     :Else
+         logError'Unhandled invocation error'
+     :EndTrap
+
+     :Continue
  :EndWhile

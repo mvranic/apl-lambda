@@ -16,7 +16,7 @@
  :If APLASYNC
    req←awaitTask requestCreate( method path headers body)
  :Else
-   req←requestCreate( method path headers body)
+   req←requestCreate(method path headers body)
  :EndIf
  _enlist←{
      ⎕ML←1
