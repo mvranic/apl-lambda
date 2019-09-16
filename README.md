@@ -116,11 +116,23 @@ Undefined name: æsæd",
 } 
 ```
 
-To decode UTF-() value error message can be used:
+To decode UTF-8 value error message can be used:
 ```apl
   'UTF-8' ⎕UCS  ⎕UCS errorMessage
 ```
 
+# Unicode encode and decode the data
+The layer implements encode and decode of data as:
+
+*encode to ANSI*
+```apl
+   ⎕UCS 'UTF-8' ⎕UCS errorMessage
+```
+
+*decode to UTF-8*
+```apl
+  'UTF-8' ⎕UCS  ⎕UCS errorMessage
+```
 
 # Environment variables
 ## APLASYNC - Async/Await on of
