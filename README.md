@@ -98,7 +98,8 @@ To test use *test.sh*
 
 # Environment variables
 ## APLASYNC - Async/Await on of
-Setting *APLASYNC* to 1 (default) are used async await model. Using this can be over head.
+Setting *APLASYNC* to 1 are used async await model. Using this can be overhead, therefore default value for *APLASYNC* is 0.
+
 ## APLLOG - Logging
 There are 5 levels of logging and integer value of *APLLOG* enables logging level:
 1. [ERROR] - Error
