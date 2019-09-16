@@ -2,8 +2,8 @@
  path err←arg
  json←⎕JSON err
  logError 'Error to be POST-ed:' path json
- json←'UTF-8'⎕UCS'UTF-8'⎕UCS  json
- body←(256>⎕UCS json)/json
+ body←⎕UCS'UTF-8'⎕UCS  json
+ ⍝ body←(256>⎕UCS body)/body
 
  method←'POST'
  headers←0 2⍴''

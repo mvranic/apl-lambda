@@ -96,6 +96,32 @@ To build layer.zip use *build.sh*
 ## To test layer local
 To test use *test.sh*
 
+# Error message
+
+On error JSON error message is created:
+
+```json
+{
+  "errorType": "6",
+  "errorMessage": " VALUE ERROR\\n aplHandler[7] aæa\u0026∇ ⍺ ⍵⌶⌸⌸⍠⎕⍞⍤.⍨⍉⌽⍴⍴⍀∪∊⍒⍋æsæd\\n                                          ∧\\n
+Undefined name: æsæd",
+  "stackTrace": [
+    "#.AplLambdaNsName.lambdaexec2019916212526435198.aplHandler[7]",
+    "#.AplLambdaNsName.callHandler[26]",
+    "#.AplLambdaNsName.processEvents[47]",
+    "#.AplLambdaNsName.start[3]",
+    "#.AplLambdaNsName.aplLambdaBootstrap[57]",
+    "#.loadAplLambda[6]"
+  ]
+} 
+```
+
+To decode UTF-() value error message can be used:
+```apl
+  'UTF-8' ⎕UCS  ⎕UCS errorMessage
+```
+
+
 # Environment variables
 ## APLASYNC - Async/Await on of
 Setting *APLASYNC* to 1 are used async await model. Using this can be overhead, therefore default value for *APLASYNC* is 0.

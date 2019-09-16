@@ -26,8 +26,8 @@ find ./output/ -type f  \( -iname '*.sh' -o -iname '*.apl' -o -iname '*.dyalog' 
 
 # cp -r ../output ./
 
-docker build -t apl-provided-lambda-v${APL_VERSION} --build-arg APL_VERSION=${APL_VERSION} .
-docker run --rm apl-provided-lambda-v${APL_VERSION} cat /tmp/apl-v${APL_VERSION}.zip > ./layer.zip
+docker -H :2375 build -t apl-provided-lambda-v${APL_VERSION} --build-arg APL_VERSION=${APL_VERSION} .
+docker -H :2375 run --rm apl-provided-lambda-v${APL_VERSION} cat /tmp/apl-v${APL_VERSION}.zip > ./layer.zip
 
 # Buid end.
 
