@@ -1,9 +1,10 @@
  res←getError;vars;varname;lx;prefix
  prefix←#.LAMBDAERRORVEC
- vars←(⊂' ')~¨⍨↓#.⎕NL 2
+ vars←(⊂#.LAMBDAERRORVEC)~⍨(⊂' ')~¨⍨↓#.⎕NL 2
  res←⍬
  :If ∨/lx←(⊂prefix)≡¨(⊂⍴prefix)↑¨vars
      varname←⊃lx/vars
      varname←'#.',varname
      res←⍎varname
  :EndIf
+ 

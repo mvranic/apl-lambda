@@ -1,8 +1,8 @@
-processEvents handler;errvals;count;errorvar;errorstmt;event;context;descrition;en;si;lc;stack;err;sink;execnsname;currns;errns
+ processEvents handler;errvals;count;errorvar;errorstmt;event;context;descrition;en;si;lc;stack;err;sink;execnsname;currns;errns
  count←0
  errorvar←('#.',#.LAMBDAERRORVEC),∊⍕¨⎕TS
  errorstmt←'sink←{en←⎕DMX.EN ⋄ descrition←2↓⊃,/(⊂''\n ''),¨(⎕DMX.DM),(⊂⎕DMX.Message) ⋄ si←⎕XSI ⋄ lc←⎕LC ⋄ ',errorvar,'←en descrition si lc ⋄ ⎕SIGNAL 501 ⋄ 0} 0'
- logInfo'processEvents errorstmt:'errorstmt
+ ⍝ logInfo'processEvents errorstmt:'errorstmt
  :While 1
      count+←1
      logInfo'processEvents'count
@@ -17,17 +17,16 @@ processEvents handler;errvals;count;errorvar;errorstmt;event;context;descrition;
 
 ErrorNext:
      ⎕TRAP←0⍴⎕TRAP
-
      :Trap 0
-        :if 0=⊃⍴ errvals←getError
-         logError'Unhandled next invocation error - error is missing.'
-        :else
-         en descrition si lc←errvals
-         clearError
-         stack←si,¨'[',¨(⍕¨lc),¨']'
-         err←toLambdaErr en descrition stack
-         sink←initError err
-         :endif
+         :If 0=⊃⍴errvals←getError
+             logError'Unhandled next invocation error - error is missing.'
+         :Else
+             en descrition si lc←errvals
+             clearError
+             stack←si,¨'[',¨(⍕¨lc),¨']'
+             err←toLambdaErr en descrition stack
+             sink←initError err
+         :EndIf
      :Else
          logError'Unhandled next invocation error.'
      :EndTrap
@@ -70,24 +69,23 @@ Invoke:
 ErrorInvoke:
      ⎕TRAP←0⍴⎕TRAP
      :Trap 0
-        :if 0=⊃⍴ errvals←getError
-         logError'Unhandled invocation error - error is missing.'
-        :else
-         en descrition si lc←errvals
-         clearError
-         stack←si,¨'[',¨(⍕¨lc),¨']'
-         errns←toLambdaErr en descrition stack
-         errns.InvocationErr←'Invocation'
-         :If APLASYNC
-             sink←awaitTask asyncTask'invokeError'(errns context)
+         :If 0=⊃⍴errvals←getError
+             logError'Unhandled invocation error - error is missing.'
          :Else
-             sink←invokeError(errns context)
-         :EndIf
+             en descrition si lc←errvals
+             clearError
+             stack←si,¨'[',¨(⍕¨lc),¨']'
+             errns←toLambdaErr en descrition stack
+             errns.InvocationErr←'Invocation'
+             :If APLASYNC
+                 sink←awaitTask asyncTask'invokeError'(errns context)
+             :Else
+                 sink←invokeError(errns context)
+             :EndIf
          :EndIf
      :Else
          logError'Unhandled invocation error'
      :EndTrap
 
      :Continue
-
  :EndWhile
