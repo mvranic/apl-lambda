@@ -29,6 +29,7 @@
  #.⎕PP #.⎕ML #.⎕IO #.⎕WX #.⎕PATH #.⎕RL #.⎕PW←14 0 1 1 ''⍬ 160
 
  logInfo'Starting AWS lambda APL runtime...'
+ logInfo'Dyalog:'
  logInfo '#.⎕PP #.⎕ML #.⎕IO #.⎕WX #.⎕PATH #.⎕RL #.⎕PW:' #.⎕PP #.⎕ML #.⎕IO #.⎕WX #.⎕PATH #.⎕RL #.⎕PW
  logInfo' APPHOME='APPHOME
 
