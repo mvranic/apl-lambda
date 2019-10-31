@@ -47,8 +47,9 @@ The code for example could found in ./17.1.0/test folder.
 ## Lets go to Cloud
 You should have account on Amazon AWS cloud at <https://aws.amazon.com/> .
 
-
 Open the [Lambda console](https://console.aws.amazon.com/lambda) .
+
+Within this project is provided Lambda layer at ./17.1.0/layer.zip . It includes APL interpreter too. This layer might be used in next step.
 
 Add layer to AWS Lambda:
 
@@ -74,7 +75,7 @@ arn:aws:lambda:us-east-2:882298957436:layer:Dyalog_APL_17_0:1
 
 ![Add layer to function](https://github.com/mvranic/apl-lambda/blob/master/img/add_function_layer.png "Function add layer setup screenshot")
 
-Then save your lambda and test it with a test event! 
+Then save your lambda (press Save button) and test it with a test event! 
 
 ![Test event output](https://github.com/mvranic/apl-lambda/blob/master/img/log.png "Test event output screenshot")
 
