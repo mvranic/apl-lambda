@@ -47,8 +47,9 @@ The code for example could found in ./17.1.0/test folder.
 ## Lets go to Cloud
 You should have account on Amazon AWS cloud at <https://aws.amazon.com/> .
 
-
 Open the [Lambda console](https://console.aws.amazon.com/lambda) .
+
+Lambda layer to update is at ./17.1.0/layer.zip. It includes APL interpreter too. 
 
 Add layer to AWS Lambda:
 
