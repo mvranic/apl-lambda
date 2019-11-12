@@ -139,7 +139,7 @@ The layer implements encode and decode of data as:
 ## APLASYNC - Async/Await on of
 Setting *APLASYNC* to 1 are used async await model. Using this can be overhead, therefore default value for *APLASYNC* is 0.
 
-## APLLOG - Logging
+## APLLOG - Logging flag
 There are 5 levels of logging and integer value of *APLLOG* enables logging level:
 1. [ERROR] - Error
 2. [WARN] - Warring
