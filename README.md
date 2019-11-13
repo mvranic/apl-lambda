@@ -63,7 +63,7 @@ Create a new Lambda function and choose the custom runtime option.
 
 ![Create lambda](https://github.com/mvranic/apl-lambda/blob/master/img/create.png "Create lambda screenshot")
 
-Select your `index.zip` as the "Function code" and change the handler form "index.handler" to "index.aplHandler".
+**Do not forget:** Select your `index.zip` as the "Function code" and change the handler form "index.handler" to **"index.aplHandler"**.
 
 ![Function code](https://github.com/mvranic/apl-lambda/blob/master/img/function_code.png "Function code setup screenshot")
 
