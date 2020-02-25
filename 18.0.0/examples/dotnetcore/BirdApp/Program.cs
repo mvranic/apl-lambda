@@ -1,4 +1,5 @@
 ﻿using System;
+using FlyingEngine;
 
 namespace BirdApp
 {
@@ -6,6 +7,8 @@ namespace BirdApp
     {
         static void Main(string[] args)
         {
+            var flyingmanager = new FlyingManager();
+            flyingmanager.TakeOff();
             Console.WriteLine("Hello World!");
         }
     }
