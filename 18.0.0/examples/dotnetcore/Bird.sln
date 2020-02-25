@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdApp", "BirdApp\BirdApp.csproj", "{D4B6A990-BB35-4B7F-A799-67B73709C7A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirdApp", "BirdApp\BirdApp.csproj", "{D4B6A990-BB35-4B7F-A799-67B73709C7A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyingEngine", "FlyingEngine\FlyingEngine.csproj", "{317A07CE-E9C6-4A72-AF0D-6B68641C8C0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyingEngine", "FlyingEngine\FlyingEngine.csproj", "{317A07CE-E9C6-4A72-AF0D-6B68641C8C0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatFlyingEngine", "GreatFlyingEngine\GreatFlyingEngine.csproj", "{A51EDE42-512A-42B0-90C2-3E900E197B20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D4B6A990-BB35-4B7F-A799-67B73709C7A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -44,5 +43,23 @@ Global
 		{317A07CE-E9C6-4A72-AF0D-6B68641C8C0C}.Release|x64.Build.0 = Release|Any CPU
 		{317A07CE-E9C6-4A72-AF0D-6B68641C8C0C}.Release|x86.ActiveCfg = Release|Any CPU
 		{317A07CE-E9C6-4A72-AF0D-6B68641C8C0C}.Release|x86.Build.0 = Release|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Debug|x64.Build.0 = Debug|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Debug|x86.Build.0 = Debug|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Release|x64.ActiveCfg = Release|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Release|x64.Build.0 = Release|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Release|x86.ActiveCfg = Release|Any CPU
+		{A51EDE42-512A-42B0-90C2-3E900E197B20}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91F10863-76A2-489D-A65B-706EDD99F590}
 	EndGlobalSection
 EndGlobal

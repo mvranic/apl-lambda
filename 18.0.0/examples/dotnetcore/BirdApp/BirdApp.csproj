@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FlyingEngine\FlyingEngine.csproj" />
+    <ProjectReference Include="..\GreatFlyingEngine\GreatFlyingEngine.csproj" />
   </ItemGroup>
 
 </Project>
