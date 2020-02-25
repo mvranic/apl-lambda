@@ -2,7 +2,7 @@
 
 **Note: Dyalog APL interpreter license**
 ```
-   Dyalog interpreter used in this project part of Dyalog docker image   dyalog/dyalog on Linux and
+   Dyalog interpreter used in this project part of Dyalog docker image  dyalog/dyalog on Linux and
    THAT IS NON COMMERCIAL VERSION OF DYALOG INTERPRETER.
    Please, check the Dyalog APL interpreter license with Dyalog ltd at http://wwww.dyalog.com
 ```
