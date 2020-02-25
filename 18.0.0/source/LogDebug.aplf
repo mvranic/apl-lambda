@@ -1,0 +1,2 @@
+logDebug msg
+logMsg 4 msg

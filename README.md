@@ -42,7 +42,7 @@ Then bundle up into a zipfile – this is your function bundle:
 
 There can be also DWS files with library to zip file.
 
-The code for example could found in ./17.1.0/test folder.
+The code for example could found in ./18.0.0/test folder.
 
 ## Lets go to Cloud
 You should have account on Amazon AWS cloud at <https://aws.amazon.com/> .

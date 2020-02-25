@@ -1,9 +1,0 @@
- clearError;vars;varname;lx;prefix
- prefix←#.LAMBDAERRORVEC
- vars←(⊂#.LAMBDAERRORVEC)~⍨(⊂' ')~¨⍨↓#.⎕NL 2
- :If ∨/lx←(⊂prefix)≡¨(⊂⍴prefix)↑¨vars
-     varname←⊃lx/vars
-     varname←(⊂'#.'),¨varname
-     ⎕EX varname
- :EndIf
- 

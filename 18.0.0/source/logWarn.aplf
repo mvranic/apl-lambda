@@ -1,0 +1,2 @@
+logWarn msg
+logMsg 2 msg
