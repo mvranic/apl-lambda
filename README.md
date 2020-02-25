@@ -2,7 +2,7 @@
 
 **Note: Dyalog APL interpreter license**
 ```
-   Dyalog interpreter used in this project part of Dyalog docker image   dyalog/dyalog on Linux and
+   Dyalog interpreter used in this project part of Dyalog docker image  dyalog/dyalog on Linux and
    THAT IS NON COMMERCIAL VERSION OF DYALOG INTERPRETER.
    Please, check the Dyalog APL interpreter license with Dyalog ltd at http://wwww.dyalog.com
 ```
@@ -47,8 +47,9 @@ The code for example could found in ./18.0.0/test folder.
 ## Lets go to Cloud
 You should have account on Amazon AWS cloud at <https://aws.amazon.com/> .
 
-
 Open the [Lambda console](https://console.aws.amazon.com/lambda) .
+
+Within this project is provided Lambda layer at ./17.1.0/layer.zip . It includes APL interpreter too. This layer might be used in next step.
 
 Add layer to AWS Lambda:
 
@@ -62,7 +63,7 @@ Create a new Lambda function and choose the custom runtime option.
 
 ![Create lambda](https://github.com/mvranic/apl-lambda/blob/master/img/create.png "Create lambda screenshot")
 
-Select your `index.zip` as the "Function code" and change the handler form "index.handler" to "index.aplHandler".
+**Do not forget:** Select your `index.zip` as the "Function code" and change the handler form "index.handler" to **"index.aplHandler"**.
 
 ![Function code](https://github.com/mvranic/apl-lambda/blob/master/img/function_code.png "Function code setup screenshot")
 
@@ -74,7 +75,7 @@ arn:aws:lambda:us-east-2:882298957436:layer:Dyalog_APL_17_0:1
 
 ![Add layer to function](https://github.com/mvranic/apl-lambda/blob/master/img/add_function_layer.png "Function add layer setup screenshot")
 
-Then save your lambda and test it with a test event! 
+Then save your lambda (press Save button) and test it with a test event! 
 
 ![Test event output](https://github.com/mvranic/apl-lambda/blob/master/img/log.png "Test event output screenshot")
 
@@ -138,7 +139,7 @@ The layer implements encode and decode of data as:
 ## APLASYNC - Async/Await on of
 Setting *APLASYNC* to 1 are used async await model. Using this can be overhead, therefore default value for *APLASYNC* is 0.
 
-## APLLOG - Logging
+## APLLOG - Logging flag
 There are 5 levels of logging and integer value of *APLLOG* enables logging level:
 1. [ERROR] - Error
 2. [WARN] - Warring
