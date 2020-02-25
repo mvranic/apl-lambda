@@ -1,8 +1,0 @@
-﻿DyalogBuild: 0.1
-ID         : apllambda, Version=0.1
-Description: APL runtime for AWS lambda.
-Defaults   : ⎕IO←⎕ML←1
-TARGET     : Distribution/apllambda.dws
-
-APL   : source/*.aplf, Target=#
-LX    : aplLambdaBootstrap 

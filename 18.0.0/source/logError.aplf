@@ -1,0 +1,2 @@
+logError msg
+logMsg 1 msg

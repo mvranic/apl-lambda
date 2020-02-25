@@ -1,0 +1,25 @@
+ req←postError arg;err;path;options;headers;body;msg;_enlist;json
+ path err←arg
+ json←⎕JSON err
+ logError 'Error to be POST-ed:' path json
+ body←⎕UCS'UTF-8'⎕UCS  json
+ ⍝ body←(256>⎕UCS body)/body
+
+ method←'POST'
+ headers←0 2⍴''
+ headers⍪←'Content-Type' 'application/json; charset=utf-8'
+ headers⍪←'Lambda-Runtime-Function-Error-Type' err.errorType
+ :If APLASYNC
+   req←awaitTask requestCreate( method path headers body)
+ :Else
+   req←requestCreate(method path headers body)
+ :EndIf
+ _enlist←{
+     ⎕ML←1
+     ∊⍵}
+
+ :If req.HttpStatus≢202
+    msg←'Unexpected ',path,' response HttpStatus: ',(⍕req.HttpStatus),' ,HttpMessage: ',(_enlist req.HttpMessage)
+    logHttpRequestErr path req
+    msg ⎕SIGNAL  enCUSTOM  
+ :EndIf   

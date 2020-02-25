@@ -1,0 +1,2 @@
+logInfo msg
+logMsg 3 msg
