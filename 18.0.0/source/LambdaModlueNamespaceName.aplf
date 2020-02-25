@@ -1,0 +1,2 @@
+ns←lambdaModlueNamespace
+ns←⍎'#.LambdaModlueNamespace' 
