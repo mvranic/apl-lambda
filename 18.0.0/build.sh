@@ -30,14 +30,20 @@ mkdir tmp
 unzip  apl-distribution/*.zip -d tmp
 mkdir dyalog
 dpkg-deb -R tmp/*.deb dyalog
+
 export mnt_prefix="/mnt"
 export pwdwithoutmnt=$(pwd) 
-export pwdwithoutmnt=${pwdwithoutmnt#$mnt_prefix}
+export pwdwithoutmnt=${pwdwithoutmnt#$mnt_prefix} # This needed only for Linux in as Subssytem on windows
+
 docker ${DOCKER_PORT} run -it --rm --privileged --name build-apl-sln -v  $pwdwithoutmnt:/usr/src/project mcr.microsoft.com/dotnet/core/sdk:3.1-bionic /bin/sh -c "cd /usr/src/project/src; dotnet build"
 
 # Todo: remove this:
 # Markos APL async Tasks:
 git clone https://github.com/mvranic/aplasync.git output/aplasync 
+
+cp -r src/AplAwsRuntimeExe/bin/Debug/netcoreapp3.1 output/AplAwsRuntime
+rm -f output/AplAwsRuntime/AplAwsRuntimeExe*.*
+rm -f output/AplAwsRuntime/AplAwsRuntimeExe
 
 cp -r aplcode output/aplcode
 cp -r source output/source
