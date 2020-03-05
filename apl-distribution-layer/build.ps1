@@ -1,0 +1,6 @@
+Remove-Item  './layer.zip' -ErrorAction Ignore 
+docker build -t apl-build-layer .
+docker create --name extract apl-build-layer
+docker cp extract:/usr/src/layer/layer.zip .
+docker rm extract
+docker rmi apl-build-layer
