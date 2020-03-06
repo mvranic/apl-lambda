@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Amazon.Lambda.Core;
+using System;
 
 namespace AplAwsRuntime {
     public abstract class AplHandlerBase {
@@ -14,9 +15,9 @@ namespace AplAwsRuntime {
             return (Action<string>)methodInfo.CreateDelegate(typeof(Action<string>), this);
         }
 
-        public Func<string, string> GetFunc(string functionName) {
+        public Func<string, ILambdaContext,  string> GetFunc(string functionName) {
             var methodInfo = this.GetType().GetMethod(functionName);
-            return (Func<string, string>)methodInfo.CreateDelegate(typeof(Func<string, string>), this);
+            return (Func<string, ILambdaContext,  string>)methodInfo.CreateDelegate(typeof(Func<string, ILambdaContext, string>), this);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AplAwsRuntime {
     public class ProgramBase {
-        private static async Task MainAsync(Func<string, ILambdaContext, string> functionHandler) {
+        public static async Task MainAsync(Func<string, ILambdaContext, string> functionHandler) {
             using (var handlerWrapper = HandlerWrapper.GetHandlerWrapper(functionHandler, new JsonSerializer()))
             using (var bootstrap = new LambdaBootstrap(handlerWrapper)) {
                 await bootstrap.RunAsync();

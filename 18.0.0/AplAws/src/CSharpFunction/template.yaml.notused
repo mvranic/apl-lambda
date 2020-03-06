@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Sample SAM Template for CSharpFunction
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+    Function:
+        Timeout: 10
+
+Resources:
+
+    CSharpFunctionFunction:
+        Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+        Properties:
+            FunctionName: CSharpFunction
+            CodeUri: src/CSharpFunction/bin/Debug/netcoreapp3.0/publish
+            Handler: CSharpFunction::CSharpFunction.Functions::Get
+            Runtime: dotnetcore3.0
+            Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+                Variables:
+                    PARAM1: VALUE
+            Events:
+                CSharpFunctionExample:
+                    Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+                    Properties:
+                        Path: /
+                        Method: get
+
+Outputs:
+
+    CSharpFunctionApi:
+      Description: "API Gateway endpoint URL for Prod stage for APL Function Example function"
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/CSharpFunction/"
+
+    CSharpFunctionFunction:
+      Description: "Debugging Example Lambda Function ARN"
+      Value: !GetAtt CSharpFunctionFunction.Arn
+
+    CSharpFunctionFunctionIamRole:
+      Description: "Implicit IAM Role created for Debugging Example function"
+      Value: !GetAtt CSharpFunctionFunctionRole.Arn
