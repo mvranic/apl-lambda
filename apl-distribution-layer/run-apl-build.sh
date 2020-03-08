@@ -1,0 +1,16 @@
+#!/bin/sh
+apt-get update -y
+apt-get install -y unzip
+apt-get install -y zip
+mkdir /usr/src/dyalog-deb
+unzip /usr/src/project/apl-distribution/*.zip -d /usr/src/dyalog-deb
+mkdir /usr/src/dyalog
+dpkg-deb -R /usr/src/dyalog-deb/*.deb /usr/src/dyalog
+ls -la /usr/src/dyalog
+ls -la /usr/src/dyalog/opt
+ls -la /usr/src/dyalog/opt/mdyalog
+
+mkdir /usr/src/layer
+cd  /usr/src/dyalog/opt
+zip -r /usr/src/layer/apllayer  mdyalog
+ls -la /usr/src/layer
