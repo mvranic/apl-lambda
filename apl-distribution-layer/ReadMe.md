@@ -11,7 +11,7 @@ build.sh
 ```
  (on Linux) or 
  ```bash
-  .\build.ps1
+  ./build.ps1
  ```
   (on windows). The build script will make file **apllayer.zip**
 During the layer build is used **run.sh**.
