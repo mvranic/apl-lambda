@@ -14,4 +14,25 @@
   <ItemGroup>
     <ProjectReference Include="..\AplAwsRuntime\AplAwsRuntime.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="apl-distribution-layer\output\" />
+  </ItemGroup>
+  <Target Name="PublishAplDependencies" AfterTargets="PostBuildEvent">
+    <Message Importance="High" Text="Adding APL interpreter as dependency ..." />
+    <MakeDir Directories="./apl-distribution-layer/output" />
+    <!-- Not tested -->
+    <Exec Command="./build.sh" Condition=" '$(OS)' == 'Unix' " WorkingDirectory="./apl-distribution-layer" />
+    <Exec Command="powershell .\build.ps1" Condition=" '$(OS)' == 'Windows_NT' " WorkingDirectory="./apl-distribution-layer" />
+    <Unzip SourceFiles="$(ProjectDir)apl-distribution-layer/output/apllayer.zip" DestinationFolder="$(OutDir)" OverwriteReadOnlyFiles="true" />
+    <!-- Otherwise is not in publish dir -->
+    <Unzip SourceFiles="$(ProjectDir)apl-distribution-layer/output/apllayer.zip" DestinationFolder="$(PublishDir)" OverwriteReadOnlyFiles="true" />
+    <Message Importance="High" Text="Added APL interpreter as dependency. " />
+  </Target>
+  <Target Name="CleanAplDependencies" AfterTargets="Clean"  >
+    <Message Importance="High" Text="Clean APL interpreter as dependency ..." />
+    <RemoveDir Directories="./apl-distribution-layer/output" />
+    <RemoveDir Directories="$(OutDir)/mdyalog" />
+    <RemoveDir Directories="$(PublishDir)/mdyalog" />
+    <Message Importance="High" Text="Cleaned APL interpreter as dependency. " />
+  </Target>
 </Project>
