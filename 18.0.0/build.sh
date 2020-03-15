@@ -22,8 +22,6 @@ cp -r dyalog/opt/mdyalog/ output/mdyalog
 
 
 # Remove not needed files for AWS lambda:
-ls -la output/${DYALOG_ROOTH_PATH}
-
 rm -rf output/${DYALOG_ROOTH_PATH}help
 rm -rf output/${DYALOG_ROOTH_PATH}xflib
 rm -rf output/${DYALOG_ROOTH_PATH}xfsrc
@@ -37,7 +35,6 @@ rm -f output/${DYALOG_ROOTH_PATH}lib/cef*.pak
 rm -f output/${DYALOG_ROOTH_PATH}chrome-sandbox
 rm -f output/${DYALOG_ROOTH_PATH}libEGL*.so
 rm -f output/${DYALOG_ROOTH_PATH}libGLESv2.so
-ls -la output/${DYALOG_ROOTH_PATH}
 
 # Change mode for shell scripts:
 find ./output/ -type f -iname "*.sh" -exec chmod +x {} \;
